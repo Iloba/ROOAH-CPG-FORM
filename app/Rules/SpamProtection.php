@@ -25,7 +25,7 @@ class SpamProtection implements Rule
      */
     public function passes($attribute, $value)
     {
-        
+        return $value == 6; 
     }
 
     /**

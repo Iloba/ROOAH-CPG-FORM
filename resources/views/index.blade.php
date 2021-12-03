@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rooah! Guild - Axie Infinity Scholarship</title>
-    <link rel="icon" type="image/x-icon" href="img/rooah-icon.png">
+    <link rel="icon" type="image/x-icon" href="img/cp-icon.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,8 +25,8 @@
 
 <body>
     <div class="header">
-        <img class="mx-auto d-block logo" src="{{ asset('img/logo_rooah.png') }}" alt="">
-        <h1 class="text-center rooah-heading">ROOAH! GUILD</h1>
+        <img class="mx-auto d-block logo" src="{{ asset('img/cp-icon.png') }}" alt="">
+        <h1 class="text-center rooah-heading">CRYPTOPIGGY GUILD</h1>
         <p class="text-center axie-heading">Axie Infinity Scholarship Request Form</p>
     </div>
     <div class="content">
@@ -129,8 +129,12 @@
                             <label for="axie_played" class="mb-3">DO YOU HAVE EXPERIENCE PLAYING AXIE INFINITY
                                 BEFORE?</label>
                             <div>
-                                <input class="form-check-input" name="axie_played" type="radio" value="YES"> YES
-                                <input class="form-check-input" name="axie_played" type="radio" value="NO"> NO
+                                <div class="m-2">
+                                    <input class="form-check-input" name="axie_played" type="radio" value="YES"> YES
+                                </div>
+                                <div class="m-2">
+                                    <input class="form-check-input" name="axie_played" type="radio" value="NO"> NO
+                                </div>
                             </div>
                             @error('axie_played')
                             <span class="error-message">{{ $message }}</span>
@@ -141,12 +145,21 @@
                                 BOTS
                                 OR ANY OTHER EXPLOITS THAT WILL GET YOU BANNED?</label>
                             <div>
-                                <input class="form-check-input" name="understand_game_rules" type="radio" value="YES">
-                                YES
-                                <input class="form-check-input" name="understand_game_rules" type="radio" value="NO"> NO
-                                <input class="form-check-input" name="understand_game_rules" type="radio" value="NO">
-                                NO, I would
-                                like to get trained on this
+                                <div class="m-2">
+                                    <input class="form-check-input" name="understand_game_rules" type="radio"
+                                        value="YES">
+                                    YES
+                                </div>
+                                <div class="m-2">
+                                    <input class="form-check-input" name="understand_game_rules" type="radio"
+                                        value="NO"> NO
+                                </div>
+                                <div class="m-2">
+                                    <input class="form-check-input" name="understand_game_rules" type="radio"
+                                        value="NO">
+                                    NO, I would
+                                    like to get trained on this
+                                </div>
                             </div>
                             @error('understand_game_rules')
                             <span class="error-message">{{ $message }}</span>
@@ -155,8 +168,12 @@
                         <div class="form-group mb-5">
                             <label for="member" class="mb-3">ARE YOU A MEMBER OF ANOTHER SCHOLARSHIP?</label>
                             <div>
-                                <input class="form-check-input" name="member" type="radio" value="YES"> YES
+                                <div class="m-2">
+                                    <input class="form-check-input" name="member" type="radio" value="YES"> YES
+                                </div>
+                               <div class="m-2">
                                 <input class="form-check-input" name="member" type="radio" value="NO"> NO
+                               </div>
 
                             </div>
                             @error('member')
@@ -197,7 +214,8 @@
                         <div class="form-group mb-5">
                             <label for="refferal">HOW DID YOU HEAR ABOUT THIS? <span class="asterik">*</span>
                             </label>
-                            <input type="text" name="refferal" class="form-control" placeholder="How did you hear about this">
+                            <input type="text" name="refferal" class="form-control"
+                                placeholder="How did you hear about this">
                             @error('refferal')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -229,7 +247,9 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @if (Session::has('success'))
     <script>
         toastr.success("{!! Session::get('success') !!}")

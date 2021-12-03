@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ScholarshipEntry;
 use App\Rules\SpamProtection;
 use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class ScholarshipEntryController extends Controller
 {
@@ -60,7 +61,10 @@ class ScholarshipEntryController extends Controller
         $entry->member = $request->member;
         $entry->experience = $request->experience;
         $entry->playing_time = $request->playing_time;
+        $entry->refferal = $request->refferal;
         $entry->comment = $request->comment;
+        $entry->reviewed = False;
+        $entry->interviewed = 'no';
 
         $entry->save();
 
