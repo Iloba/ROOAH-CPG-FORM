@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ 
+}
+body{
+    background-color: #f8f8f8;
+}
+.header{
+    padding: 50px;
+}
+.logo{
+    width: 120px;
+}
+.rooah-heading{
+    font-weight: bold;
+}
+.axie-heading{
+    font-weight: bold;
+    color: #BF1E2E;
+}
+.content{
+    background-color: #fff;
+    padding: 80px;
+    min-height: 100vh;
+}
+.footer{
+    padding: 30px;
+    background-color: rgb(238, 238, 238);
+}
+.footer p{
+    color: #afafaf;
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+}
+.asterik{
+    color: red;
+}
+label{
+    font-weight: bold;
+    color: #000;
+}
+.form-control{
+    border: 1px solid rgb(235, 232, 232);
+    height: 50px;
+    background-color: #fff;
+}
+.form-control:focus{
+    box-shadow: none;
+    background-color: #e8f7d9;
+    border: 1px solid #428102;
+    color: #000;
+}
+
+.form-check-input:focus{
+    background-color: #8BC63F;
+    border: none;
+}
+.submit-btn{
+    background-color: #8BC63F;
+    border: #8BC63F;
+    padding: 10px;
+    width: 50%;
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+.submit-btn:hover{
+    background-color: #8BC63F;
+    border: #8BC63F; 
+}
+.error-message{
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+}
+
+/* Media Query */
+@media screen and (max-width: 600px) {
+    .content {
+      padding: 22px;
+    }
+    .submit-btn{
+        display: block;
+        margin: auto;  
+    }
+    .header{
+        padding: 15px;
+    }
+}
