@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ScholarshipEntry;
+use App\Rules\SpamProtection;
 use Illuminate\Support\Facades\Session;
 
 class ScholarshipEntryController extends Controller
@@ -27,6 +28,11 @@ class ScholarshipEntryController extends Controller
             'experience' => 'required|string|max:255',
             'playing_time' => 'required|string|between:1,2',
             'comment' => 'String|max:255',
+            'refferal' => 'required',
+            'spam' => [
+                'required',
+                new SpamProtection(),
+            ]
         ],
         [
             'gender.in' => 'Please Select Gender',

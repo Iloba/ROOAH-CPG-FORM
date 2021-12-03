@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ScholarshipEntryController;
 use App\Models\ScholarshipEntry;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,6 @@ Route::get('/', function () {
 });
 
 Route::post('/submit-entry', [ScholarshipEntryController::class, 'StoreEntry'])->name('submit.entry');
+Route::view('/login', 'admin.login')->name('admin.login.page');
+Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+Route::post('/login', [AdminDashboardController::class, 'login'])->name('login.admin');

@@ -194,6 +194,24 @@
                             @enderror
                         </div>
 
+                        <div class="form-group mb-5">
+                            <label for="refferal">HOW DID YOU HEAR ABOUT THIS? <span class="asterik">*</span>
+                            </label>
+                            <input type="text" name="refferal" class="form-control" placeholder="How did you hear about this">
+                            @error('refferal')
+                            <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-5">
+                            <label for="spam">1 + 5 = ? <span class="asterik">*</span>
+                            </label>
+                            <input type="number" name="spam" class="form-control" placeholder="">
+                            @error('spam')
+                            <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="mt-3">
                             <button type="submit" class="btn btn-success submit-btn">SUBMIT</button>
                         </div>

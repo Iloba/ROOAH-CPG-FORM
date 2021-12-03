@@ -29,7 +29,10 @@ class CreateScholarshipEntriesTable extends Migration
             $table->string('member');
             $table->string('experience');
             $table->string('playing_time');
+            $table->string('refferal');
             $table->string('comment');
+            $table->boolean('reviewed');
+            $table->string('interviewed');
             $table->timestamps();
         });
     }

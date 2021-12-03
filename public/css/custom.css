@@ -80,6 +80,7 @@ label{
     font-weight: bold;
 }
 
+
 /* Media Query */
 @media screen and (max-width: 600px) {
     .content {
