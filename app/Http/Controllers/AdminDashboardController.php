@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ScholarshipEntry;
 use Illuminate\Http\Request;
+use App\Models\ScholarshipEntry;
+use Illuminate\Support\Facades\Session;
 
 class AdminDashboardController extends Controller
 {
@@ -17,8 +18,39 @@ class AdminDashboardController extends Controller
         return view('admin.dashboard', ['entries' => $entries]);
     }
 
-    public function ReviewUser($id){
-        dd($id);
+    public function ReviewEntry($id){
+       
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
+
+      
+
+        //Set interviewed to yes and reviewed to true
+        $entry->interviewed = 'yes';
+        $entry->reviewed = true;
+
+        $entry->save();
+
+
+        Session::flash('success', 'Entry Set to reviwed');
+        return redirect()->back();
+    }
+
+    public function ReverseReviewEntry($id){
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
+
+      
+
+        //Set interviewed to yes and reviewed to true
+        $entry->interviewed = 'no';
+        $entry->reviewed = false;
+
+        $entry->save();
+
+
+        Session::flash('success', 'Reversed Changes');
+        return redirect()->back();
     }
 
     
