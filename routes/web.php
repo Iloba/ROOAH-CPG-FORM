@@ -30,4 +30,4 @@ Route::post('/review-entry/{id}', [HomeController::class, 'ReviewEntry'])->name(
 Route::post('/reverse-review-entry/{id}', [HomeController::class, 'ReverseReviewEntry'])->name('reverse.review.user');
 Auth::routes();
 
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
