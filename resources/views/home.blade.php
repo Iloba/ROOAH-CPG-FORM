@@ -7,7 +7,6 @@
             <img width="100" class="mx-auto d-block logo" src="{{ asset('img/cp-icon.png') }}" alt="">
             <h1 class="text-center rooah-heading">CRYPTOPIGGY GUILD</h1>
             <p class="text-center axie-heading">Axie Infinity Scholarship Entries</p>
-            <p class="text-center axie-heading">Admin Dashboard</p>
             <p class="text-center">Entries with green background have been reviwed, while those with white have not</p>
 
         </div>
@@ -22,7 +21,7 @@
                     </div>
                     @endif
 
-
+                    @if ($entries->count() > 0)
                     <div class="table-responsive mb-3">
                         <table class="table table-striped border">
                             <thead>
@@ -160,6 +159,10 @@
                     <div class=" p-3  d-flex justify-content-center">
                         {{ $entries->links() }}
                     </div>
+                    @else
+                    <p class="text-center">There are no entries yet</p>
+                    @endif
+                
                 </div>
             </div>
         </div>
