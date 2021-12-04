@@ -242,7 +242,7 @@
     </div>
     </div>
     <div class="footer">
-        <p class="text-center">Developed by <a href="https://rooah.com">Rooah!</a> with ❤</p>
+        <p class="text-center">Developed by <a target="_blank" href="https://rooah.com">Rooah!</a> with ❤</p>
         <p class="text-center">© Rooah! LLC, 2021</p>
         <p class="text-center text-secondary"><a href="{{ route('login') }}">Admin</a></p>
     </div>
