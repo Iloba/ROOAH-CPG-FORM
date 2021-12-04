@@ -26,8 +26,8 @@ Route::post('/submit-entry', [ScholarshipEntryController::class, 'StoreEntry'])-
 // Route::view('/login', 'admin.login')->name('admin.login.page');
 // Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 // Route::post('/login', [AdminDashboardController::class, 'login'])->name('login.admin');
-Route::post('/review-entry/{id}', [HomeController::class, 'ReviewEntry'])->name('review.user');
-Route::post('/reverse-review-entry/{id}', [HomeController::class, 'ReverseReviewEntry'])->name('reverse.review.user');
+Route::get('/review-entry/{id}', [HomeController::class, 'ReviewEntry'])->name('review.user');
+Route::get('/reverse-review-entry/{id}', [HomeController::class, 'ReverseReviewEntry'])->name('reverse.review.user');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

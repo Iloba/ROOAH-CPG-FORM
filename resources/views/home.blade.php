@@ -9,20 +9,20 @@
             <p class="text-center axie-heading">Axie Infinity Scholarship Entries</p>
             <p class="text-center axie-heading">Admin Dashboard</p>
             <p class="text-center">Entries with green background have been reviwed, while those with white have not</p>
-    
+
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}  {{ __('You are logged in!') }}</div>
+                <div class="card-header">{{ __('Dashboard') }} {{ __('You are logged in!') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                   
+
                     <div class="table-responsive mb-3">
                         <table class="table table-striped border">
                             <thead>
@@ -74,12 +74,12 @@
                                     </td>
                                     <td>
                                         @if ($entry->reviewed)
-                                         <i class="fas fa-check-circle bg-light p-3 text-success"></i>
+                                        <i class="fas fa-check-circle bg-light p-3 text-success"></i>
                                         @else
-                                            <i class="fas fa-window-close bg-primary p-3 text-light"></i>
+                                        <i class="fas fa-window-close bg-primary p-3 text-light"></i>
                                         @endif
-                                
-                                    </td>   
+
+                                    </td>
                                     <td>
                                         <button type="button"
                                             class="{{ $entry->reviewed ? 'btn btn-light' : 'btn btn-primary' }}"
@@ -121,18 +121,27 @@
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
                                                 @if ($entry->reviewed)
-                                                <form action="{{ route('reverse.review.user', $entry->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-danger">Reverse
-                                                        Changes</button>
-                                                </form>
+                                                <a class="btn btn-danger" href="{{ route('reverse.review.user', $entry->id) }}">
+                                                    Reverse
+                                                            Changes
+                                                </a>
+                                                    {{-- <form action="{{ route('reverse.review.user', $entry->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">Reverse
+                                                            Changes
+                                                        </button>
+                                                    </form> --}}
                                                 @else
-                                                <form action="{{ route('review.user', $entry->id) }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-primary">Mark as
-                                                        Reviewed</button>
-                                                </form>
+                                                <a class="btn btn-primary" href="{{ route('review.user', $entry->id) }}">Reviewed</a>
+                                                    {{-- <form action="{{ route('review.user', $entry->id) }}" method="POST">
+                                                        @csrf
+
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Mark as
+                                                            Reviewed
+                                                        </button>
+                                                    </form> --}}
                                                 @endif
 
 
@@ -144,9 +153,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                       
-                      
-                      
+
+
+
                     </div>
                     <div class="bg-info p-3  d-flex justify-content-center">
                         {{ $entries->links() }}
