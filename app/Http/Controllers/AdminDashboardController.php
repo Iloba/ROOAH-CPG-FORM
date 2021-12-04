@@ -2,24 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Key;
 use Illuminate\Http\Request;
 use App\Models\ScholarshipEntry;
 use Illuminate\Support\Facades\Session;
 
 class AdminDashboardController extends Controller
 {
-    public function login(Request $request){
-        dd('hello');
+    public function login(Request $request)
+    {
+        $request->validate([
+            'key' => 'required'
+        ]);
+        
+        $keys = Key::all();
+
+        foreach ($keys as $key) {  
+            if ($request->key === $key['key'] ){
+
+                //Start Session
+
+
+                return redirect(route('admin.dashboard'));
+            }else{
+                return redirect()->back();
+            }
+        }
     }
 
-    public function dashboard(){
+    public function dashboard()
+    {
         //get all data
         $entries = ScholarshipEntry::latest()->paginate(5);
         return view('admin.dashboard', ['entries' => $entries]);
     }
 
-    public function ReviewEntry($id){
-       
+    public function ReviewEntry($id)
+    {
+
         //Get the entry
         $entry = ScholarshipEntry::where('id', $id)->first();
 
@@ -34,7 +54,8 @@ class AdminDashboardController extends Controller
         return redirect()->back();
     }
 
-    public function ReverseReviewEntry($id){
+    public function ReverseReviewEntry($id)
+    {
         //Get the entry
         $entry = ScholarshipEntry::where('id', $id)->first();
 
@@ -48,6 +69,4 @@ class AdminDashboardController extends Controller
         Session::flash('success', 'Reversed Changes');
         return redirect()->back();
     }
-
-    
 }

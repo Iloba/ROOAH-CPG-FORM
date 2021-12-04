@@ -24,6 +24,13 @@
 
 <body>
     <div class="header">
+        <div class="d-flexs">
+            <a class="" href="#">Logout</a>
+        </div>
+     
+        <form class="d-none" action="" id="logout-form">
+
+        </form>
         <img class="mx-auto d-block logo" src="{{ asset('img/cp-icon.png') }}" alt="">
         <h1 class="text-center rooah-heading">CRYPTOPIGGY GUILD</h1>
         <p class="text-center axie-heading">Axie Infinity Scholarship Entries</p>
@@ -160,7 +167,7 @@
                       
                       
                     </div>
-                    <div class="mx-auto d-block">
+                    <div class="bg-info p-3  d-flex justify-content-center">
                         {{ $entries->links() }}
                     </div>
                 </div>

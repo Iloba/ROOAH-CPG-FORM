@@ -36,11 +36,11 @@
                     <div class="card shadow-sm p-5 login-box">
                         <form action="{{ route('login.admin') }}" method="POST">
                             @csrf
-                            <input type="text" name="key" class="form-control mb-4" placeholder="Enter Security Key">
+                            <input type="password" name="key" class="form-control" placeholder="Enter Security Key">
                             @error('key')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
-                            <button class="btn btn-primary d-block mx-auto" type="submit">Unlock</button>
+                            <button class="btn btn-primary d-block mx-auto mt-4" type="submit">Unlock</button>
                         </form>
                     </div>
                 </div>
