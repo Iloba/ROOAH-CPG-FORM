@@ -37,7 +37,7 @@
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <label for="full_name">FULL NAME <span class="asterik">*</span></label>
-                            <input type="text" name="full_name" class="form-control" placeholder="Enter Full Name">
+                            <input type="text" name="full_name" class="form-control" placeholder="Enter Full Name" value="{{ old('full_name') }}">
                             @error('full_name')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -45,7 +45,7 @@
 
                         <div class="form-group mb-4">
                             <label for="age">AGE <span class="asterik">*</span></label>
-                            <input type="number" name="age" class="form-control" placeholder="Enter Age">
+                            <input type="number" name="age" class="form-control" placeholder="Enter Age" value="{{ old('age') }}">
                             @error('age')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -53,7 +53,7 @@
 
                         <div class="form-group mb-4">
                             <label for="occupation">OCCUPATION <span class="asterik">*</span></label>
-                            <input type="text" name="occupation" class="form-control" placeholder="Enter Occupation">
+                            <input type="text" name="occupation" class="form-control" placeholder="Enter Occupation" value="{{ old('occupation') }}">
                             @error('occupation')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -83,7 +83,7 @@
 
                         <div class="form-group mb-4">
                             <label for="country">COUNTRY <span class="asterik">*</span></label>
-                            <input type="text" name="country" class="form-control" placeholder="Enter Country">
+                            <input type="text" name="country" class="form-control" placeholder="Enter Country" value="{{ old('country') }}">
                             @error('country')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -108,7 +108,7 @@
                             <label for="social_account">SOCIAL ACCOUNT (FACEBOOK, INSTAGRAM OR TWITTER. LINK PLEASE)
                                 <span class="asterik">*</span></label>
                             <input type="text" name="social_account" class="form-control"
-                                placeholder="Enter Social Networks">
+                                placeholder="Enter Social Networks" value="{{ old('social_account') }}">
                             @error('social_account')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -117,7 +117,7 @@
                         <div class="form-group mb-4">
                             <label for="discord">DISCORD NAME + TAG (EG 'BEAST#1234') <span
                                     class="asterik">*</span></label>
-                            <input type="text" name="discord" class="form-control" placeholder="Enter Discord Tag">
+                            <input type="text" name="discord" class="form-control" placeholder="Enter Discord Tag" value="{{ old('discord') }}">
                             @error('discord')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -171,9 +171,9 @@
                                 <div class="m-2">
                                     <input class="form-check-input" name="member" type="radio" value="YES"> YES
                                 </div>
-                               <div class="m-2">
-                                <input class="form-check-input" name="member" type="radio" value="NO"> NO
-                               </div>
+                                <div class="m-2">
+                                    <input class="form-check-input" name="member" type="radio" value="NO"> NO
+                                </div>
 
                             </div>
                             @error('member')
@@ -186,7 +186,7 @@
                                 WHAT
                                 WAS YOUR RANK? TALK ABOUT YOUR EXPERIENCE. <span class="asterik">*</span></label>
                             <input type="text" name="experience" class="form-control"
-                                placeholder="Do you have any Experience">
+                                placeholder="Do you have any Experience" value="{{ old('experience') }}">
                             @error('experience')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -196,7 +196,7 @@
                                     Hours)</span>
                             </label>
                             <input type="number" name="playing_time" class="form-control"
-                                placeholder="How Much time can you play ">
+                                placeholder="How Much time can you play " value="{{ old('playing_time') }}">
                             @error('playing_time')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -205,7 +205,7 @@
                             <label for="comment">PLEASE PROVIDE ANY ADDITIONAL COMMENTS.
                             </label>
                             <textarea name="comment" class="form-control" cols="30" rows="5"
-                                placeholder="Please provide any additional comments"> </textarea>
+                                placeholder="Please provide any additional comments"> {{ old('comment') }}</textarea>
                             @error('comment')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -215,7 +215,7 @@
                             <label for="refferal">HOW DID YOU HEAR ABOUT THIS? <span class="asterik">*</span>
                             </label>
                             <input type="text" name="refferal" class="form-control"
-                                placeholder="How did you hear about this">
+                                placeholder="How did you hear about this" value="{{ old('refferal') }}">
                             @error('refferal')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -246,31 +246,33 @@
         <p class="text-center">© Rooah! LLC, 2021</p>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    @if (Session::has('success'))
-    <script>
-        toastr.success("{!! Session::get('success') !!}")
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+    @if (Session::has('success'))
+        <script>
+            toastr.success("{!! Session::get('success') !!}")
+        </script>
     @endif
 
     {{-- toastr error --}}
     @if (Session::has('error'))
-    <script>
-        toastr.error("{!! Session::get('error') !!}")
-    </script>
+        <script>
+            toastr.error("{!! Session::get('error') !!}")
+        </script>
     @endif
 
     {{-- loop through errors and display on toastr --}}
     @if ($errors->any())
-    @foreach ($errors->all() as $error)
-    <script>
-        toastr.error("{!! $error !!}")
-    </script>
-    @endforeach
-    </div>
+        @foreach ($errors->all() as $error)
+        <script>
+            toastr.error("{!! $error !!}")
+        </script>
+        @endforeach
+  
     @endif
 
 

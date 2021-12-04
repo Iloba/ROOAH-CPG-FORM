@@ -14,7 +14,7 @@ class AdminDashboardController extends Controller
 
     public function dashboard(){
         //get all data
-        $entries = ScholarshipEntry::all();
+        $entries = ScholarshipEntry::latest()->paginate(5);
         return view('admin.dashboard', ['entries' => $entries]);
     }
 
@@ -23,8 +23,6 @@ class AdminDashboardController extends Controller
         //Get the entry
         $entry = ScholarshipEntry::where('id', $id)->first();
 
-      
-
         //Set interviewed to yes and reviewed to true
         $entry->interviewed = 'yes';
         $entry->reviewed = true;
@@ -32,15 +30,13 @@ class AdminDashboardController extends Controller
         $entry->save();
 
 
-        Session::flash('success', 'Entry Set to reviwed');
+        Session::flash('success', 'Entry Marked as reviwed');
         return redirect()->back();
     }
 
     public function ReverseReviewEntry($id){
         //Get the entry
         $entry = ScholarshipEntry::where('id', $id)->first();
-
-      
 
         //Set interviewed to yes and reviewed to true
         $entry->interviewed = 'no';
