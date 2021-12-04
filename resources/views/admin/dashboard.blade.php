@@ -39,15 +39,15 @@
                         <table class="table table-striped border">
                             <thead>
                                 <tr>
-                                    <th>S/NO</th>
+                                    <th>NO</th>
                                     <th> NAME</th>
                                     <th>AGE</th>
                                     <th>OCCUPATION</th>
-                                    <th>GENDER</th>
+                                    <th>SEX</th>
                                     <th>EMAIL</th>
                                     <th>COUNTRY</th>
                                     <th>DISCORD</th>
-                                    <th>Reviewed</th>
+                                    <th>REVIEWED</th>
                                     <th>MORE</th>
                                     {{-- <th>FULL NAME</th>
                                     <th>FULL NAME</th>
