@@ -75,7 +75,7 @@
                         <div class="form-group mb-4">
                             <label for="email">EMAIL <span class="asterik">*</span></label>
                             <input type="text" name="email" class="form-control"
-                                placeholder="Enter a Valid Email Address">
+                                placeholder="Enter a Valid Email Address" value="{{ old('email') }}">
                             @error('email')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
