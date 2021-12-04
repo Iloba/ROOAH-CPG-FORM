@@ -17,10 +17,6 @@
     <!--Styles--->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-
-    {{-- <!--Toastr--->
-    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet"> --}}
-
 </head>
 
 <body>
