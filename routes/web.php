@@ -24,3 +24,4 @@ Route::post('/submit-entry', [ScholarshipEntryController::class, 'StoreEntry'])-
 Route::view('/login', 'admin.login')->name('admin.login.page');
 Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 Route::post('/login', [AdminDashboardController::class, 'login'])->name('login.admin');
+Route::post('/review-entry/{id}', [AdminDashboardController::class, 'ReviewUser'])->name('review.user');

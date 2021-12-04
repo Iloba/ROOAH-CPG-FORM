@@ -17,5 +17,9 @@ class AdminDashboardController extends Controller
         return view('admin.dashboard', ['entries' => $entries]);
     }
 
+    public function ReviewUser($id){
+        dd($id);
+    }
+
     
 }

@@ -120,7 +120,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
-                                                    <form action="" method="POST">
+                                                    <form action="{{ route('review.user', $entry->id) }}" method="POST">
                                                         @csrf
                                                         <button type="submit" class="btn btn-primary">Mark as Reviewed</button>
                                                     </form>
