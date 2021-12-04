@@ -61,6 +61,14 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="secret_code" class="col-md-4 col-form-label text-md-right">{{ __('Enter Secret Code') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="secret_code" type="password" class="form-control" name="secret_code" required>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -21,6 +21,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!--Toastr--->
+    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
 </head>
 
 <body>

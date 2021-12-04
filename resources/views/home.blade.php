@@ -157,7 +157,7 @@
 
 
                     </div>
-                    <div class="bg-info p-3  d-flex justify-content-center">
+                    <div class=" p-3  d-flex justify-content-center">
                         {{ $entries->links() }}
                     </div>
                 </div>

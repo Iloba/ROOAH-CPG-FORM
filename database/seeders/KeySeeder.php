@@ -17,7 +17,7 @@ class KeySeeder extends Seeder
     public function run()
     {
         DB::table('keys')->insert([
-            'key' => Str::random(10),
+            'key' => Str::random(4),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             
