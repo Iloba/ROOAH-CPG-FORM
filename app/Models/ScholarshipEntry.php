@@ -6,7 +6,7 @@ use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ScholarshipEntry extends Model 
+class ScholarshipEntry extends Model    
 {
     use HasFactory;
 

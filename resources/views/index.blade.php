@@ -52,6 +52,14 @@
                         </div>
 
                         <div class="form-group mb-4">
+                            <label for="phone">TELEPHONE NUMBER <span class="asterik">*</span></label>
+                            <input type="number" name="phone" class="form-control" placeholder="Enter Telephone Number" value="{{ old('age') }}">
+                            @error('phone')
+                            <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-4">
                             <label for="occupation">OCCUPATION <span class="asterik">*</span></label>
                             <input type="text" name="occupation" class="form-control" placeholder="Enter Occupation" value="{{ old('occupation') }}">
                             @error('occupation')
@@ -82,7 +90,7 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="country">COUNTRY <span class="asterik">*</span></label>
+                            <label for="country">NATIONALITY <span class="asterik">*</span></label>
                             <input type="text" name="country" class="form-control" placeholder="Enter Country" value="{{ old('country') }}">
                             @error('country')
                             <span class="error-message">{{ $message }}</span>
@@ -214,8 +222,20 @@
                         <div class="form-group mb-5">
                             <label for="refferal">HOW DID YOU HEAR ABOUT THIS? <span class="asterik">*</span>
                             </label>
-                            <input type="text" name="refferal" class="form-control"
-                                placeholder="How did you hear about this" value="{{ old('refferal') }}">
+                            <select class="form-control" name="refferal" id="">
+                                <option value="--Select---">--Select--</option>
+                                <option value="Discord">Discord</option>
+                                <option value="Reddit">Reddit</option>
+                                <option value="Twitter">Twitter</option>
+                                <option value="NaijaFM">NaijaFM</option>
+                                <option value="Google">Google</option>
+                                <option value="Friend">Friend</option>
+                                <option value="CPG Employee">CPG Employee</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                            {{-- <input type="text" name="refferal" class="form-control"
+                                placeholder="How did you hear about this" value="{{ old('refferal') }}"> --}}
                             @error('refferal')
                             <span class="error-message">{{ $message }}</span>
                             @enderror

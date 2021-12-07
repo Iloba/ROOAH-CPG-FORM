@@ -28,7 +28,7 @@ class ScholarshipEntryController extends Controller
             'member' => 'required',
             'experience' => 'required|string|max:255',
             'playing_time' => 'required|string|between:1,2',
-            'comment' => 'String|max:255',
+            // 'comment' => 'String|max:255',
             'refferal' => 'required',
             'spam' => [
                 'required',
