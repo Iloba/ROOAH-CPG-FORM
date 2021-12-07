@@ -287,14 +287,14 @@
     @endif
 
     {{-- loop through errors and display on toastr --}}
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         @foreach ($errors->all() as $error)
         <script>
             toastr.error("{!! $error !!}")
         </script>
         @endforeach
   
-    @endif
+    @endif --}}
 
 
 </body>
