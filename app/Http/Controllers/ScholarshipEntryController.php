@@ -16,6 +16,7 @@ class ScholarshipEntryController extends Controller
         $request->validate([
             'full_name' => 'required|string',
             'age' => 'required',
+            'phone' => 'required|max:11',
             'occupation' => 'required|string',
             'gender' => 'required|string|in:Male,Female,Other',
             'email' => 'required|email',
@@ -50,6 +51,7 @@ class ScholarshipEntryController extends Controller
         $entry = new ScholarshipEntry;
         $entry->full_name = $request->full_name;
         $entry->age = $request->age;
+        $entry->phone = $request->phone;
         $entry->occupation = $request->occupation;
         $entry->gender = $request->gender;
         $entry->email = $request->email;

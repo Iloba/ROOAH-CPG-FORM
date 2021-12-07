@@ -17,6 +17,7 @@ class CreateScholarshipEntriesTable extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('age');
+            $table->string('Phone');
             $table->string('occupation');
             $table->string('gender');
             $table->string('email');
