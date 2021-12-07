@@ -113,7 +113,8 @@
                                                 <b>Understand Game Rules:</b> {{ $entry->understand_game_rules }} <br>
                                                 <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
                                                 <b>Comment:</b> {{ $entry->comment }} <br>
-                                                <b>Interviewed:</b> {{ $entry->interviewed }}
+                                                <b>Interviewed:</b> {{ $entry->interviewed }} <br>
+                                                <b>Date Registered:</b> {{ \Carbon\Carbon::parse($entry->created_at)->format('M d Y') }} 
                                             </div>
                                             <div class="modal-footer">
 
