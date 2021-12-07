@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ScholarshipEntry extends Model
+class ScholarshipEntry extends Model 
 {
     use HasFactory;
+
+    use Sortable;
+    public $sortable = ['ID', 'Full_Name', 'Age', 'Created_At'];
 }

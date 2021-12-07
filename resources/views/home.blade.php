@@ -23,17 +23,28 @@
 
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3">
+                        <div class="float-right">
+                            {{-- <form action="">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                                    </div>
+                                  </div>
+
+                            </form> --}}
+                        </div>
                         <table class="table table-striped border">
                             <thead>
                                 <tr>
-                                    <th>NO</th>
-                                    <th> NAME</th>
-                                    <th>AGE</th>
+                                    <th>@sortablelink('ID')</th>
+                                    <th> @sortablelink('Full_Name')</th>
+                                    <th> @sortablelink('Age')</th>
                                     <th>OCCUPATION</th>
                                     <th>SEX</th>
                                     <th>EMAIL</th>
                                     <th>COUNTRY</th>
-                                    <th>DISCORD</th>
+                                    <th>@sortablelink('Created_At')</th>
                                     <th>REVIEWED</th>
                                     <th>MORE</th>
                                     {{-- <th>FULL NAME</th>
@@ -69,7 +80,7 @@
                                         {{ $entry->country }}
                                     </td>
                                     <td>
-                                        {{ $entry->discord }}
+                                        {{\Carbon\Carbon::parse($entry->created_at)->format('M d Y') }}
                                     </td>
                                     <td>
                                         @if ($entry->reviewed)
@@ -104,6 +115,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
+                                                <b>Discord:</b> {{ $entry->discord }} <br>
                                                 <b>English Level:</b> {{ $entry->english_level }} <br>
                                                 <b>Playing Time:</b> {{ $entry->playing_time }} hours <br>
                                                 <b>Social Account:</b> {{ $entry->social_account }} <br>
@@ -114,34 +126,37 @@
                                                 <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
                                                 <b>Comment:</b> {{ $entry->comment }} <br>
                                                 <b>Interviewed:</b> {{ $entry->interviewed }} <br>
-                                                <b>Date Registered:</b> {{ \Carbon\Carbon::parse($entry->created_at)->format('M d Y') }} 
+                                                <b>Discord:</b> {{ $entry->discord }}
                                             </div>
                                             <div class="modal-footer">
 
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
                                                 @if ($entry->reviewed)
-                                                <a class="btn btn-danger" href="{{ route('reverse.review.user', $entry->id) }}">
+                                                <a class="btn btn-danger"
+                                                    href="{{ route('reverse.review.user', $entry->id) }}">
                                                     Reverse
-                                                            Changes
+                                                    Changes
                                                 </a>
-                                                    {{-- <form action="{{ route('reverse.review.user', $entry->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-danger">Reverse
-                                                            Changes
-                                                        </button>
-                                                    </form> --}}
+                                                {{-- <form action="{{ route('reverse.review.user', $entry->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Reverse
+                                                        Changes
+                                                    </button>
+                                                </form> --}}
                                                 @else
-                                                <a class="btn btn-primary" href="{{ route('review.user', $entry->id) }}">Reviewed</a>
-                                                    {{-- <form action="{{ route('review.user', $entry->id) }}" method="POST">
-                                                        @csrf
+                                                <a class="btn btn-primary"
+                                                    href="{{ route('review.user', $entry->id) }}">Reviewed</a>
+                                                {{-- <form action="{{ route('review.user', $entry->id) }}"
+                                                    method="POST">
+                                                    @csrf
 
-                                                        <button type="submit" class="btn btn-primary">
-                                                            Mark as
-                                                            Reviewed
-                                                        </button>
-                                                    </form> --}}
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Mark as
+                                                        Reviewed
+                                                    </button>
+                                                </form> --}}
                                                 @endif
 
 
@@ -158,12 +173,13 @@
 
                     </div>
                     <div class=" p-3  d-flex justify-content-center">
-                        {{ $entries->links() }}
+                        {{-- {{ $entries->links() }} --}}
+                        {{-- {{ $entries->appends(\Request::except('page'))->render() }} --}}
                     </div>
                     @else
                     <p class="text-center">There are no entries yet</p>
                     @endif
-                
+
                 </div>
             </div>
         </div>
