@@ -227,9 +227,13 @@
                         <div class="form-group mb-5">
                             <label for="refferal">HOW DID YOU HEAR ABOUT THIS? <span class="asterik">*</span>
                             </label>
-                            <select class="form-control" name="refferal" id="" onchange="
-                            if( $(this).val() === 'Other' ){
-                                    document.getElementById('other-input').classList.remove('d-none');
+                            <select class="form-control" name="refferal" id="select-form" onchange="
+                                if( $(this).val() === 'Other' ){
+                                    document.getElementById('other-input').classList.remove('d-none')
+                                    var option =  document.querySelector('#detail-input').value;
+                                    console.log(option);
+                                    document.getElementById('select-form').value = option;
+
                                 }
                                 if( $(this).val() === 'Friend' ){
                                     document.getElementById('other-input').classList.remove('d-none');
@@ -262,7 +266,7 @@
                                 <option value="Google">Google</option>
                                 <option value="Friend">Friend</option>
                                 <option value="CPG Employee">CPG Employee</option>
-                                <option value="Other">Other</option>
+                                <option id="other-option" value="Other">Other</option>
                             </select>
 
                             {{-- <input type="text" name="refferal" class="form-control"
@@ -275,7 +279,7 @@
                         <div class="form-group mb-5 d-none" id="other-input">
                             <label for="details">Enter Details<span class="asterik">*</span>
                             </label>
-                            <input type="text" class="form-control" placeholder="">
+                            <input type="text" id="detail-input" class="form-control" placeholder="">
                             @error('details')
                             <span class="error-message">{{ $message }}</span>
                             @enderror

@@ -30,7 +30,7 @@ class ScholarshipEntryController extends Controller
             'experience' => 'required|string|max:255',
             'playing_time' => 'required|string|between:1,2',
             // 'comment' => 'String|max:255',
-            'refferal' => 'required|in:Discord,Reddit,Twitter,NaijaFM,Google,Friend,CPG Employee,Other',
+            'refferal' => 'in:Discord,Reddit,Twitter,NaijaFM,Google,Friend,CPG Employee,Other',
             'spam' => [
                 'required',
                 new SpamProtection(),
