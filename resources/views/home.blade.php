@@ -54,9 +54,6 @@
                                     <td>
                                         {{ $entry->age }}
                                     </td>
-                                    {{-- <td>
-                                        {{ $entry->occupation }}
-                                    </td> --}}
                                     <td>
                                         {{ $entry->gender }}
                                     </td>
@@ -82,7 +79,7 @@
                                     </td>
                                     <td>
                                         <button type="button"
-                                            class="{{ $entry->reviewed ? 'btn btn-light' : 'btn btn-primary' }}"
+                                            class="{{ $entry->reviewed ? 'btn btn-light btn-sm' : 'btn btn-primary btn-sm' }}"
                                             data-toggle="modal" data-target="#exampleModalLong-{{ $entry->id }}">
                                             <i class="fas fa-caret-square-down"></i>
                                         </button>
