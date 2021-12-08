@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="phone">TELEPHONE NUMBER <span class="asterik">*</span></label>
+                            <label for="phone">TELEPHONE NUMBER (START WITH COUNTRY CODE) <span class="asterik">*</span></label>
                             <input type="number" name="phone" class="form-control" placeholder="Enter Telephone Number"
                                 value="{{ old('age') }}">
                             @error('phone')
@@ -132,6 +132,26 @@
                             <input type="text" name="discord" class="form-control" placeholder="Enter Discord Tag"
                                 value="{{ old('discord') }}">
                             @error('discord')
+                            <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="im_platform">INSTANT MESSAGING PLATFORM (EG 'Whatsapp, Telegram') <span
+                                    class="asterik">*</span></label>
+                            <input type="text" name="im_platform" class="form-control" placeholder="Enter Name of Instant Messaging Platform"
+                                value="{{ old('im_platform') }}">
+                            @error('im_platform')
+                            <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="im_username">INSTANT MESSAGING PLATFORM USERNAME/PHONE  <span
+                                    class="asterik">*</span></label>
+                            <input type="text" name="im_username" class="form-control" placeholder="Enter Username or phone we can reach out to you with on the instant messaging Platform"
+                                value="{{ old('im_username') }}">
+                            @error('im_username')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
                         </div>
@@ -230,9 +250,9 @@
                             <select class="form-control" name="refferal" id="select-form" onchange="
                                 if( $(this).val() === 'Other' ){
                                     document.getElementById('other-input').classList.remove('d-none')
-                                    var option =  document.querySelector('#detail-input').value;
-                                    console.log(option);
-                                    document.getElementById('select-form').value = option;
+                                    // var option =  document.querySelector('#detail-input').value;
+                                    // console.log(option);
+                                    // document.getElementById('select-form').value = option;
 
                                 }
                                 if( $(this).val() === 'Friend' ){
@@ -277,9 +297,9 @@
                         </div>
 
                         <div class="form-group mb-5 d-none" id="other-input">
-                            <label for="details">Enter Details<span class="asterik">*</span>
+                            <label for="details">Enter Details
                             </label>
-                            <input type="text" id="detail-input" class="form-control" placeholder="">
+                            <input type="text" name="refferal_detail" id="detail-input" class="form-control" placeholder="">
                             @error('details')
                             <span class="error-message">{{ $message }}</span>
                             @enderror

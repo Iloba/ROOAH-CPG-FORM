@@ -31,7 +31,10 @@ class CreateScholarshipEntriesTable extends Migration
             $table->string('experience');
             $table->string('playing_time');
             $table->string('refferal');
+            $table->string('refferal_detail')->nullable();
             $table->string('comment');
+            $table->string('instant_messaging_platform');
+            $table->string('instant_messaging_platform_username');
             $table->boolean('reviewed')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();

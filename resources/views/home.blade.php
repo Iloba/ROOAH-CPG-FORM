@@ -96,14 +96,16 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <b>Telephone:</b> {{ $entry->phone }} <br>
+                                                <b>Telephone:</b> +{{ $entry->phone }} <br>
+                                                <b>Instant Messaging Platform:</b> {{ $entry->instant_messaging_platform }} <br>
+                                                <b>Instant Messaging Platform Username/Phone:</b> {{ $entry->instant_messaging_platform_username }} <br>
                                                 <b>Occupation:</b> {{ $entry->occupation }} <br>
                                                 <b>Discord:</b> {{ $entry->discord }} <br>
                                                 <b>English Level:</b> {{ $entry->english_level }} <br>
                                                 <b>Playing Time:</b> {{ $entry->playing_time }} hours <br>
                                                 <b>Social Account:</b> {{ $entry->social_account }} <br>
                                                 <b> Experience:</b> {{ $entry->experience }} <br>
-                                                <b>Refferal:</b> {{ $entry->refferal }} <br>
+                                                <b>Refferal:</b> {{ $entry->refferal }}  <b>Refferal Detail: {{ $entry->refferal_detail }}</b> <br>
                                                 <b>Played Game before:</b> {{ $entry->axie_played }} <br>
                                                 <b>Understand Game Rules:</b> {{ $entry->understand_game_rules }} <br>
                                                 <b>Member of another Scholarship:</b> {{ $entry->member }} <br>

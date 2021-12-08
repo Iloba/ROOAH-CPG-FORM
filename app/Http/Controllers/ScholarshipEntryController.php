@@ -65,6 +65,9 @@ class ScholarshipEntryController extends Controller
         $entry->experience = $request->experience;
         $entry->playing_time = $request->playing_time;
         $entry->refferal = $request->refferal;
+        $entry->refferal_detail = $request->refferal_detail;
+        $entry->instant_messaging_platform = $request->im_platform;
+        $entry->instant_messaging_platform_username = $request->im_username;
         $entry->comment = $request->comment;
         $entry->reviewed = False;
         $entry->status = 'Not Interviewed';
