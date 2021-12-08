@@ -28,18 +28,12 @@
                                     <th> @sortablelink('Full_Name')</th>
                                     <th> @sortablelink('Age')</th>
                                     <th>@sortablelink('gender')</th>
-                                    <th>EMAIL</th>
-                                    <th>COUNTRY</th>
+                                    <th>Email</th>
+                                    <th>Nationality</th>
                                     <th>@sortablelink('Created_At')</th>
                                     <th>@sortablelink('status')</th>
-                                    <th>REVIEWED</th>
-                                    <th>MORE</th>
-                                    {{-- <th>FULL NAME</th>
-                                    <th>FULL NAME</th>
-                                    <th>FULL NAME</th>
-                                    <th>FULL NAME</th>
-                                    <th>FULL NAME</th>
-                                    <th>FULL NAME</th> --}}
+                                    <th>Reviewed</th>
+                                    <th>More</th>
                                 </tr>
                             </thead>
                             <tbody>
