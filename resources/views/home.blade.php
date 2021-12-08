@@ -10,7 +10,7 @@
 
         </div>
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">{{ __('Dashboard') }} {{ __('You are logged in!') }}</div>
                 <div class="card-body p-3">
                     @if (session('status'))
@@ -22,12 +22,12 @@
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3 p-2">
                         <table class="table table-striped table-sm">
-                            <thead>
+                            <thead class="thead-dark">
                                 <tr>
                                     <th>@sortablelink('ID')</th>
                                     <th> @sortablelink('Full_Name')</th>
                                     <th> @sortablelink('Age')</th>
-                                    <th>SEX</th>
+                                    <th>@sortablelink('gender')</th>
                                     <th>EMAIL</th>
                                     <th>COUNTRY</th>
                                     <th>@sortablelink('Created_At')</th>
@@ -74,9 +74,9 @@
                                     </td>
                                     <td>
                                         @if ($entry->reviewed)
-                                        <i class="fas fa-check-circle bg-light p-3 text-success"></i>
+                                        <i class="fas fa-check-circle bg-light p-2 text-success"></i>
                                         @else
-                                        <i class="fas fa-window-close bg-primary p-3 text-light"></i>
+                                        <i class="fas fa-window-close bg-primary p-2 text-light"></i>
                                         @endif
 
                                     </td>

@@ -11,5 +11,5 @@ class ScholarshipEntry extends Model
     use HasFactory;
 
     use Sortable;
-    public $sortable = ['ID', 'Full_Name', 'Age', 'Created_At', 'status'];
+    public $sortable = ['ID', 'Full_Name', 'Age', 'Created_At', 'status', 'gender'];
 }
