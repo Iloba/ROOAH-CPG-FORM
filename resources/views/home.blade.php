@@ -132,16 +132,15 @@
                                                 {{-- <b>Interviewed:</b> {{ $entry->interviewed }} <br>
                                                 <b>Discord:</b> {{ $entry->discord }} --}}
                                             </div>
-                                            <h3 class="text-center">Change Scholar Status</h3> <br>
+                                            <h4 class="text-center">Change Scholar Status</h4> <br>
                                             <div class="modal-footer">
 
                                                 {{-- <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button> --}}
                                                 @if ($entry->reviewed)
-                                                <a class="btn btn-danger"
+                                                <a class="btn btn-danger btn-sm"
                                                     href="{{ route('reverse.review.user', $entry->id) }}">
-                                                    Reverse
-                                                    Changes
+                                                    Set to Unreviewed
                                                 </a>
                                                 {{-- <form action="{{ route('reverse.review.user', $entry->id) }}"
                                                     method="POST">
@@ -165,9 +164,9 @@
                                                 @endif
                                                 
                                                 
-                                                <a href="" class="btn btn-secondary btn-sm">Interviewed</a>
-                                                <a href="" class="btn btn-primary btn-sm">Hired</a>
-                                                <a href="" class="btn btn-danger btn-sm">Terminated</a>
+                                                <a href="{{ route('status.interviewed', $entry->id) }}" class="btn btn-secondary btn-sm">Interviewed</a>
+                                                <a href="{{ route('status.hired', $entry->id) }}" class="btn btn-primary btn-sm">Hired</a>
+                                                <a href="{{ route('status.terminated', $entry->id) }}" class="btn btn-danger btn-sm">Terminated</a>
                                                
 
                                             </div>

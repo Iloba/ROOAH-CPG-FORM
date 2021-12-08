@@ -35,8 +35,7 @@ class HomeController extends Controller
         //Get the entry
         $entry = ScholarshipEntry::where('id', $id)->first();
 
-        //Set interviewed to yes and reviewed to true
-        $entry->interviewed = 'yes';
+        //Set Reviewed to True
         $entry->reviewed = true;
 
         $entry->save();
@@ -51,14 +50,61 @@ class HomeController extends Controller
         //Get the entry
         $entry = ScholarshipEntry::where('id', $id)->first();
 
-        //Set interviewed to yes and reviewed to true
-        $entry->interviewed = 'no';
+        //Set Reviewed to False
         $entry->reviewed = false;
 
         $entry->save();
 
 
         Session::flash('success', 'Reversed Changes');
+        return redirect()->back();
+    }
+
+    public function StatusInterviewed($id)
+    {
+
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
+
+        //Set interviewed to yes and reviewed to true
+        $entry->status = 'Interviewed';
+
+        $entry->save();
+
+
+        Session::flash('success', 'Status set to Interviewed');
+        return redirect()->back();
+    }
+
+    public function StatusHired($id)
+    {
+
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
+
+        //Set interviewed to yes and reviewed to true
+        $entry->status = 'Hired';
+
+        $entry->save();
+
+
+        Session::flash('success', 'Status set to Hired');
+        return redirect()->back();
+    }
+
+    public function StatusTerminated($id)
+    {
+
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
+
+        //Set interviewed to yes and reviewed to true
+        $entry->status = 'Contract Terminated';
+
+        $entry->save();
+
+
+        Session::flash('success', 'Status set to Terminated');
         return redirect()->back();
     }
 }
