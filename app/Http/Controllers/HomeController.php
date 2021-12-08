@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $entries = ScholarshipEntry::Sortable()->paginate(5);
+        $entries = ScholarshipEntry::Sortable()->paginate(10);
         return view('home', ['entries' => $entries]);
     }
 

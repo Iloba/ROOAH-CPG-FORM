@@ -170,7 +170,7 @@
                     </div>
                     <div class=" p-3  d-flex justify-content-center">
                         {{-- {{ $entries->links() }} --}}
-                        {{-- {{ $entries->appends(\Request::except('page'))->render() }} --}}
+                        {{ $entries->appends(\Request::except('page'))->render() }}
                     </div>
                     @else
                     <p class="text-center">There are no entries yet</p>
