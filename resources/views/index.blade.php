@@ -272,14 +272,14 @@
                             @enderror
                         </div>
 
-                        {{-- <div class="form-group mb-5 d-none" id="other-input">
+                        <div class="form-group mb-5 d-none" id="other-input">
                             <label for="details">Enter Details<span class="asterik">*</span>
                             </label>
-                            <input type="text" name="refferal" class="form-control" placeholder="">
+                            <input type="text" class="form-control" placeholder="">
                             @error('details')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
-                        </div> --}}
+                        </div>
 
                         <div class="form-group mb-5">
                             <label for="spam">1 + 5 = ? <span class="asterik">*</span>

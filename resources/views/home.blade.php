@@ -96,6 +96,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
+                                                <b>Telephone:</b> {{ $entry->phone }} <br>
                                                 <b>Occupation:</b> {{ $entry->occupation }} <br>
                                                 <b>Discord:</b> {{ $entry->discord }} <br>
                                                 <b>English Level:</b> {{ $entry->english_level }} <br>
