@@ -21,7 +21,7 @@
 
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3 p-2">
-                        <table class="table table-striped border">
+                        <table class="table table-striped table-sm">
                             <thead>
                                 <tr>
                                     <th>@sortablelink('ID')</th>
@@ -44,7 +44,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($entries as $entry)
-                                <tr class="{{ $entry->reviewed ? 'bg-success text-light' : ''}}">
+                                <tr class="{{ $entry->reviewed ? ' table-success' : ''}}">
                                     <td>
                                         {{ $entry->id }}
                                     </td>
@@ -116,38 +116,20 @@
                                                 <b>Understand Game Rules:</b> {{ $entry->understand_game_rules }} <br>
                                                 <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
                                                 <b>Comment:</b> {{ $entry->comment }} <br>
-                                                {{-- <b>Interviewed:</b> {{ $entry->interviewed }} <br>
-                                                <b>Discord:</b> {{ $entry->discord }} --}}
                                             </div>
                                             <h4 class="text-center">Change Scholar Status</h4> <br>
                                             <div class="modal-footer">
 
-                                                {{-- <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button> --}}
+                                               
                                                 @if ($entry->reviewed)
                                                 <a class="btn btn-danger btn-sm"
                                                     href="{{ route('reverse.review.user', $entry->id) }}">
                                                     Set to Unreviewed
                                                 </a>
-                                                {{-- <form action="{{ route('reverse.review.user', $entry->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-danger">Reverse
-                                                        Changes
-                                                    </button>
-                                                </form> --}}
+                                                
                                                 @else
                                                 <a class="btn btn-success btn-sm"
                                                     href="{{ route('review.user', $entry->id) }}">Reviewed</a>
-                                                {{-- <form action="{{ route('review.user', $entry->id) }}"
-                                                    method="POST">
-                                                    @csrf
-
-                                                    <button type="submit" class="btn btn-primary">
-                                                        Mark as
-                                                        Reviewed
-                                                    </button>
-                                                </form> --}}
                                                 @endif
                                                 
                                                 
