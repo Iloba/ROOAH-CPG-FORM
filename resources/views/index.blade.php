@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="gender">GENDER </label>
+                            <label for="gender">GENDER <span class="asterik">*</span></label>
                             <select name="gender" class="form-control" id="">
                                 <option value="--Select-Gender--">--Select-Gender--</option>
                                 <option value="Male">Male</option>
@@ -85,7 +85,7 @@
 
                         <div class="form-group mb-4">
                             <label for="email">EMAIL <span class="asterik">*</span></label>
-                            <input type="text" name="email" class="form-control"
+                            <input type="email" name="email" class="form-control"
                                 placeholder="Enter a Valid Email Address" value="{{ old('email') }}">
                             @error('email')
                             <span class="error-message">{{ $message }}</span>
@@ -225,7 +225,7 @@
                             @enderror
                         </div>
                         <div class="form-group mb-5">
-                            <label for="playing_time">HOW MUCH TIME CAN YOU PLAY PER DAY? <span style="color:red">(1-11
+                            <label for="playing_time">HOW MUCH TIME CAN YOU PLAY PER DAY? <span style="color:red">(1-12
                                     Hours)</span>
                             </label>
                             <input type="number" name="playing_time" class="form-control"
@@ -306,7 +306,7 @@
                         </div>
 
                         <div class="form-group mb-5">
-                            <label for="spam">1 + 5 = ? <span class="asterik">*</span>
+                            <label for="spam">1 + 5 = ? <span class="text-center">(SPAM PROTECTION)</span> <span class="asterik">*</span>
                             </label>
                             <input type="number" name="spam" class="form-control" placeholder="">
                             @error('spam')
