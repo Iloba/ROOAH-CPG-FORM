@@ -3,18 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="header">
+        <div class="header mb-3">
             <img width="100" class="mx-auto d-block logo" src="{{ asset('img/cp-icon.png') }}" alt="">
             <h1 class="text-center rooah-heading">CRYPTOPIGGY GUILD</h1>
-            <p class="text-center axie-heading">Axie Infinity Scholarship Entries</p>
-            <p class="text-center">Entries with green background have been reviwed, while those with white have not</p>
+            <p class="text-center axie-heading text-bold">Axie Infinity Scholarship Entries <br> Entries with green background have been reviwed, while those with white have not </p>
 
         </div>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }} {{ __('You are logged in!') }}</div>
-
-                <div class="card-body">
+                <div class="card-body p-3">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
@@ -22,18 +20,7 @@
                     @endif
 
                     @if ($entries->count() > 0)
-                    <div class="table-responsive mb-3">
-                        <div class="float-right">
-                            {{-- <form action="">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                      <button class="btn btn-outline-secondary" type="button">Button</button>
-                                    </div>
-                                  </div>
-
-                            </form> --}}
-                        </div>
+                    <div class="table-responsive mb-3 p-2">
                         <table class="table table-striped border">
                             <thead>
                                 <tr>
@@ -44,7 +31,7 @@
                                     <th>EMAIL</th>
                                     <th>COUNTRY</th>
                                     <th>@sortablelink('Created_At')</th>
-                                    <th>Status</th>
+                                    <th>@sortablelink('status')</th>
                                     <th>REVIEWED</th>
                                     <th>MORE</th>
                                     {{-- <th>FULL NAME</th>
