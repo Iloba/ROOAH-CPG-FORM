@@ -67,7 +67,7 @@ class ScholarshipEntryController extends Controller
         $entry->refferal = $request->refferal;
         $entry->comment = $request->comment;
         $entry->reviewed = False;
-        $entry->interviewed = 'no';
+        $entry->status = 'Not Interviewed';
 
         $entry->save();
 

@@ -40,11 +40,11 @@
                                     <th>@sortablelink('ID')</th>
                                     <th> @sortablelink('Full_Name')</th>
                                     <th> @sortablelink('Age')</th>
-                                    <th>OCCUPATION</th>
                                     <th>SEX</th>
                                     <th>EMAIL</th>
                                     <th>COUNTRY</th>
                                     <th>@sortablelink('Created_At')</th>
+                                    <th>Status</th>
                                     <th>REVIEWED</th>
                                     <th>MORE</th>
                                     {{-- <th>FULL NAME</th>
@@ -67,9 +67,9 @@
                                     <td>
                                         {{ $entry->age }}
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         {{ $entry->occupation }}
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         {{ $entry->gender }}
                                     </td>
@@ -81,6 +81,9 @@
                                     </td>
                                     <td>
                                         {{\Carbon\Carbon::parse($entry->created_at)->format('M d Y') }}
+                                    </td>
+                                    <td>
+                                        {{ $entry->status }}
                                     </td>
                                     <td>
                                         @if ($entry->reviewed)
@@ -115,6 +118,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
+                                                <b>Occupation:</b> {{ $entry->occupation }} <br>
                                                 <b>Discord:</b> {{ $entry->discord }} <br>
                                                 <b>English Level:</b> {{ $entry->english_level }} <br>
                                                 <b>Playing Time:</b> {{ $entry->playing_time }} hours <br>
@@ -125,13 +129,14 @@
                                                 <b>Understand Game Rules:</b> {{ $entry->understand_game_rules }} <br>
                                                 <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
                                                 <b>Comment:</b> {{ $entry->comment }} <br>
-                                                <b>Interviewed:</b> {{ $entry->interviewed }} <br>
-                                                <b>Discord:</b> {{ $entry->discord }}
+                                                {{-- <b>Interviewed:</b> {{ $entry->interviewed }} <br>
+                                                <b>Discord:</b> {{ $entry->discord }} --}}
                                             </div>
+                                            <h3 class="text-center">Change Scholar Status</h3> <br>
                                             <div class="modal-footer">
 
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
+                                                {{-- <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button> --}}
                                                 @if ($entry->reviewed)
                                                 <a class="btn btn-danger"
                                                     href="{{ route('reverse.review.user', $entry->id) }}">
@@ -146,7 +151,7 @@
                                                     </button>
                                                 </form> --}}
                                                 @else
-                                                <a class="btn btn-primary"
+                                                <a class="btn btn-success btn-sm"
                                                     href="{{ route('review.user', $entry->id) }}">Reviewed</a>
                                                 {{-- <form action="{{ route('review.user', $entry->id) }}"
                                                     method="POST">
@@ -158,7 +163,12 @@
                                                     </button>
                                                 </form> --}}
                                                 @endif
-
+                                                
+                                                
+                                                <a href="" class="btn btn-secondary btn-sm">Interviewed</a>
+                                                <a href="" class="btn btn-primary btn-sm">Hired</a>
+                                                <a href="" class="btn btn-danger btn-sm">Terminated</a>
+                                               
 
                                             </div>
                                         </div>

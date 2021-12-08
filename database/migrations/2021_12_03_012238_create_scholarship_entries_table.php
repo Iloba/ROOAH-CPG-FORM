@@ -17,7 +17,7 @@ class CreateScholarshipEntriesTable extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('age');
-            $table->string('Phone');
+            $table->string('phone');
             $table->string('occupation');
             $table->string('gender');
             $table->string('email');
@@ -33,7 +33,7 @@ class CreateScholarshipEntriesTable extends Migration
             $table->string('refferal');
             $table->string('comment');
             $table->boolean('reviewed')->nullable();
-            $table->string('interviewed')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

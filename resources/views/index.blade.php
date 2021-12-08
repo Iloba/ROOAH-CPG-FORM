@@ -20,7 +20,6 @@
 
     <!--Toastr--->
     <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -37,7 +36,8 @@
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <label for="full_name">FULL NAME <span class="asterik">*</span></label>
-                            <input type="text" name="full_name" class="form-control" placeholder="Enter Full Name" value="{{ old('full_name') }}">
+                            <input type="text" name="full_name" class="form-control" placeholder="Enter Full Name"
+                                value="{{ old('full_name') }}">
                             @error('full_name')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -45,7 +45,8 @@
 
                         <div class="form-group mb-4">
                             <label for="age">AGE <span class="asterik">*</span></label>
-                            <input type="number" name="age" class="form-control" placeholder="Enter Age" value="{{ old('age') }}">
+                            <input type="number" name="age" class="form-control" placeholder="Enter Age"
+                                value="{{ old('age') }}">
                             @error('age')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -53,7 +54,8 @@
 
                         <div class="form-group mb-4">
                             <label for="phone">TELEPHONE NUMBER <span class="asterik">*</span></label>
-                            <input type="number" name="phone" class="form-control" placeholder="Enter Telephone Number" value="{{ old('age') }}">
+                            <input type="number" name="phone" class="form-control" placeholder="Enter Telephone Number"
+                                value="{{ old('age') }}">
                             @error('phone')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -61,7 +63,8 @@
 
                         <div class="form-group mb-4">
                             <label for="occupation">OCCUPATION <span class="asterik">*</span></label>
-                            <input type="text" name="occupation" class="form-control" placeholder="Enter Occupation" value="{{ old('occupation') }}">
+                            <input type="text" name="occupation" class="form-control" placeholder="Enter Occupation"
+                                value="{{ old('occupation') }}">
                             @error('occupation')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -91,7 +94,8 @@
 
                         <div class="form-group mb-4">
                             <label for="country">NATIONALITY <span class="asterik">*</span></label>
-                            <input type="text" name="country" class="form-control" placeholder="Enter Country" value="{{ old('country') }}">
+                            <input type="text" name="country" class="form-control" placeholder="Enter Country"
+                                value="{{ old('country') }}">
                             @error('country')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -125,7 +129,8 @@
                         <div class="form-group mb-4">
                             <label for="discord">DISCORD NAME + TAG (EG 'BEAST#1234') <span
                                     class="asterik">*</span></label>
-                            <input type="text" name="discord" class="form-control" placeholder="Enter Discord Tag" value="{{ old('discord') }}">
+                            <input type="text" name="discord" class="form-control" placeholder="Enter Discord Tag"
+                                value="{{ old('discord') }}">
                             @error('discord')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -222,7 +227,33 @@
                         <div class="form-group mb-5">
                             <label for="refferal">HOW DID YOU HEAR ABOUT THIS? <span class="asterik">*</span>
                             </label>
-                            <select class="form-control" name="refferal" id="">
+                            <select class="form-control" name="refferal" id="" onchange="
+                            if( $(this).val() === 'Other' ){
+                                    document.getElementById('other-input').classList.remove('d-none');
+                                }
+                                if( $(this).val() === 'Friend' ){
+                                    document.getElementById('other-input').classList.remove('d-none');
+                                }
+                                if( $(this).val() === 'CPG Employee' ){
+                                    document.getElementById('other-input').classList.remove('d-none');
+                                }
+                                if( $(this).val() === 'Discord' ){
+                                    document.getElementById('other-input').classList.add('d-none');
+                                }
+                                if( $(this).val() === 'Reddit' ){
+                                    document.getElementById('other-input').classList.add('d-none');
+                                }
+                                if( $(this).val() === 'Twitter' ){
+                                    document.getElementById('other-input').classList.add('d-none');
+                                }
+                                if( $(this).val() === 'NaijaFM' ){
+                                    document.getElementById('other-input').classList.add('d-none');
+                                }
+                                if( $(this).val() === 'Google' ){
+                                    document.getElementById('other-input').classList.add('d-none');
+                                }
+                            
+                            ">
                                 <option value="--Select---">--Select--</option>
                                 <option value="Discord">Discord</option>
                                 <option value="Reddit">Reddit</option>
@@ -240,6 +271,15 @@
                             <span class="error-message">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        {{-- <div class="form-group mb-5 d-none" id="other-input">
+                            <label for="details">Enter Details<span class="asterik">*</span>
+                            </label>
+                            <input type="text" name="refferal" class="form-control" placeholder="">
+                            @error('details')
+                            <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div> --}}
 
                         <div class="form-group mb-5">
                             <label for="spam">1 + 5 = ? <span class="asterik">*</span>
@@ -274,26 +314,28 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
     @if (Session::has('success'))
-        <script>
-            toastr.success("{!! Session::get('success') !!}")
-        </script>
+    <script>
+        toastr.success("{!! Session::get('success') !!}")
+    </script>
     @endif
 
     {{-- toastr error --}}
     @if (Session::has('error'))
-        <script>
-            toastr.error("{!! Session::get('error') !!}")
-        </script>
+    <script>
+        toastr.error("{!! Session::get('error') !!}")
+    </script>
     @endif
+
+
 
     {{-- loop through errors and display on toastr --}}
     {{-- @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        <script>
-            toastr.error("{!! $error !!}")
-        </script>
-        @endforeach
-  
+    @foreach ($errors->all() as $error)
+    <script>
+        toastr.error("{!! $error !!}")
+    </script>
+    @endforeach
+
     @endif --}}
 
 
