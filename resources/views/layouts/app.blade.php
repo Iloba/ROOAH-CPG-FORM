@@ -25,6 +25,9 @@
 
     <!--Toastr--->
     <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
+
+    {{-- Css --}}
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body>

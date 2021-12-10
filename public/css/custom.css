@@ -81,6 +81,7 @@ label{
 }
 
 
+
 /* Media Query */
 @media screen and (max-width: 600px) {
     .content {
@@ -94,6 +95,7 @@ label{
         padding: 15px;
     }
     .filter-input{
-        display: none;
+       width: 80%;
+       margin: auto;
     }
 }

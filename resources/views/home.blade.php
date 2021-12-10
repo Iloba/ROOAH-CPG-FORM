@@ -37,14 +37,14 @@
                             </form>
                         </div> --}}
                         <div class="container-fluid">
-                            <div class="row mb-5 justify-content-center">
+                            <div class="row mb-3 justify-content-center">
                                 <div class="col-md-3 mb-3">
                                     <form action="{{ route('home') }}" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="country">Filter By Country</label> <br>
-                                            <select name="country" id="">
+                                            <select name="country"  class="filter-input" >
 
                                                 @foreach ($countries->unique('country') as $country)
                                                 <option value="{{ $country->country }}">{{ $country->country }}</option>
@@ -61,12 +61,12 @@
                                     <form action="{{ route('home') }}" method="POST">
                                         @csrf
                                         @method('GET')
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label for="age">Filter By Age</label> <br>
-                                            <select name="age" id="" class="filter-input">
+                                            <select name="age" class="filter-input">
 
                                                 @foreach ($ages->unique('age') as $age)
-                                                <option value="{{ $age->age }}">{{ $age->age }}</option>
+                                                <option value="{{ $age->age }}">{{ $age->age }} years old</option>
                                                 @endforeach
 
                                             </select>
@@ -82,7 +82,7 @@
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="age">Filter By English Level</label> <br>
-                                            <select name="english_level" id="">
+                                            <select name="english_level"  class="filter-input">
 
                                                 @foreach ($englishLevels->unique('english_level') as $englishLevel)
                                                 <option value="{{ $englishLevel->english_level }}">{{
@@ -102,7 +102,7 @@
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="age">Filter By Playing Time</label> <br>
-                                            <select name="playing_time" id="">
+                                            <select name="playing_time"  class="filter-input">
 
                                                 @foreach ($playingTimes->unique('playing_time') as $playingTime)
                                                 <option value="{{ $playingTime->playing_time }}">{{
@@ -115,6 +115,70 @@
                                         </div>
                                     </form>
                                 </div>
+                            </div>
+                        </div>
+                        {{-- Second Filter Box --}}
+                        <div class="container-fluid">
+                            <div class="row mb-5 justify-content-center">
+                                <div class="col-md-4 mb-3">
+                                    <form action="{{ route('home') }}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="form-group">
+                                            <label for="country">Filter By Experience</label> <br>
+                                            <select name="experience"  class="filter-input" >
+
+                                                @foreach ($experiences->unique('axie_played') as $experience)
+                                                <option value="{{ $experience->axie_played }}">{{ $experience->axie_played }}</option>
+                                                @endforeach
+
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class="fas fa-filter"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <form action="{{ route('home') }}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="form-group ">
+                                            <label for="age">Filter By Status</label> <br>
+                                            <select name="status" class="filter-input">
+
+                                                @foreach ($statuses->unique('status') as $status)
+                                                <option value="{{ $status->status }}">{{ $status->status }}</option>
+                                                @endforeach
+
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class="fas fa-filter"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <form action="{{ route('home') }}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="form-group">
+                                            <label for="age">Filter By Date Registered</label> <br>
+                                            <select name="english_level"  class="filter-input">
+
+                                                @foreach ($englishLevels->unique('english_level') as $englishLevel)
+                                                <option value="{{ $englishLevel->english_level }}">{{
+                                                    $englishLevel->english_level }}</option>
+                                                @endforeach
+
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class="fas fa-filter"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                              
                             </div>
                         </div>
                         <table class="table table-striped table-sm">
