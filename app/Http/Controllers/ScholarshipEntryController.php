@@ -80,4 +80,8 @@ class ScholarshipEntryController extends Controller
 
 
     }
+
+    public function search(Request $request){
+        dd($request->all());
+    }
 }

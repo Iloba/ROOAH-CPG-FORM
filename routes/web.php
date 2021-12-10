@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ScholarshipEntryController;
+use App\Models\ScholarshipEntry;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::get('/reverse-review-entry/{id}', [HomeController::class, 'ReverseReviewE
 Route::get('/status-interviewed/{id}', [HomeController::class, 'StatusInterviewed'])->name('status.interviewed');
 Route::get('/status-hired/{id}', [HomeController::class, 'StatusHired'])->name('status.hired');
 Route::get('/status-terminated/{id}', [HomeController::class, 'StatusTerminated'])->name('status.terminated');
+Route::get('/search', [ScholarshipEntryController::class, 'search'])->name('entries.search');
+
 
 Auth::routes();
 
