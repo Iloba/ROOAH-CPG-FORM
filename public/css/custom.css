@@ -93,4 +93,7 @@ label{
     .header{
         padding: 15px;
     }
+    .filter-input{
+        display: none;
+    }
 }

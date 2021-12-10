@@ -31,6 +31,7 @@ class HomeController extends Controller
         $countries = ScholarshipEntry::all(['country']);
         $ages = ScholarshipEntry::all(['age']);
         $englishLevels = ScholarshipEntry::all(['english_level']);
+        $playingTImes =  ScholarshipEntry::all(['playing_time']);
 
 
 
@@ -48,6 +49,11 @@ class HomeController extends Controller
         //Filter by English Level
         if ($request->has('english_level')) {
             $entries = ScholarshipEntry::where('english_level', $request->english_level)->paginate(10);
+        }
+
+        //Filter By Playing Time
+        if ($request->has('playing_time')) {
+            $entries = ScholarshipEntry::where('playing_time', $request->playing_time)->paginate(10);
         }
 
         //Search
@@ -68,7 +74,8 @@ class HomeController extends Controller
             'entries' => $entries,
             'countries' => $countries,
             'ages' => $ages,
-            'englishLevels' =>  $englishLevels
+            'englishLevels' =>  $englishLevels,
+            'playingTimes' => $playingTImes
         ]);
     }
 

@@ -22,218 +22,243 @@
 
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3 p-2">
-                        <div class="row mb-5">
-                            <div class="col-md-3">
-                               <form action="{{ route('home') }}" method="POST">
-                                   @csrf
-                                   @method('GET')
-                                   <div class="form-group">
-                                    <label for="country">Filter By Country</label> <br>
-                                    <select name="country" id="">
-                                       
-                                        @foreach ($countries->unique('country') as $country)
-                                        <option value="{{ $country->country }}">{{ $country->country }}</option>
-                                        @endforeach
-                                        
-                                    </select>
-                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
-                                   </div>
-                               </form>
-                            </div>
-
-                            <div class="col-md-3">
-                                <form action="{{ route('home') }}" method="POST">
-                                    @csrf
-                                    @method('GET')
-                                    <div class="form-group">
-                                     <label for="age">Filter By Age</label> <br>
-                                     <select name="age" id="">
-                                        
-                                         @foreach ($ages->unique('age') as $age)
-                                         <option value="{{ $age->age }}">{{ $age->age }}</option>
-                                         @endforeach
-                                         
-                                     </select>
-                                     <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
+                        {{-- <div class="col-md-3">
+                            <form action="{{route('home')}}" method="POST">
+                                @csrf
+                                @method('GET')
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="search" id="inlineFormInputGroup"
+                                        placeholder="Search">
+                                    <div class="input-group-prepend">
+                                        <button type="submit" class="input-group-text btn btn-primary"><i
+                                                class="fa fa-search"></i></button>
                                     </div>
-                                </form>
-                             </div>
+                                </div>
+                            </form>
+                        </div> --}}
+                        <div class="container-fluid">
+                            <div class="row mb-5 justify-content-center">
+                                <div class="col-md-3 mb-3">
+                                    <form action="{{ route('home') }}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="form-group">
+                                            <label for="country">Filter By Country</label> <br>
+                                            <select name="country" id="">
 
-                             <div class="col-md-3">
-                                <form action="{{ route('home') }}" method="POST">
-                                    @csrf
-                                    @method('GET')
-                                    <div class="form-group">
-                                     <label for="age">Filter By English Level</label> <br>
-                                     <select name="english_level" id="">
-                                        
-                                         @foreach ($englishLevels->unique('english_level') as $englishLevel)
-                                         <option value="{{ $englishLevel->english_level }}">{{ $englishLevel->english_level }}</option>
-                                         @endforeach
-                                         
-                                     </select>
-                                     <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
-                                    </div>
-                                </form>
-                             </div>
+                                                @foreach ($countries->unique('country') as $country)
+                                                <option value="{{ $country->country }}">{{ $country->country }}</option>
+                                                @endforeach
 
-
-                            <div class="col-md-3">
-                                <form action="{{route('home')}}" method="POST">
-                                    @csrf
-                                    @method('GET')
-                                        <div class="input-group mb-2">
-                                            <input type="text" class="form-control" name="search" id="inlineFormInputGroup" placeholder="Search">
-                                        <div class="input-group-prepend">
-                                            <button type="submit" class="input-group-text btn btn-primary"><i class="fa fa-search"></i></button>
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class="fas fa-filter"></i></button>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <form action="{{ route('home') }}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="form-group">
+                                            <label for="age">Filter By Age</label> <br>
+                                            <select name="age" id="" class="filter-input">
+
+                                                @foreach ($ages->unique('age') as $age)
+                                                <option value="{{ $age->age }}">{{ $age->age }}</option>
+                                                @endforeach
+
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class="fas fa-filter"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <form action="{{ route('home') }}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="form-group">
+                                            <label for="age">Filter By English Level</label> <br>
+                                            <select name="english_level" id="">
+
+                                                @foreach ($englishLevels->unique('english_level') as $englishLevel)
+                                                <option value="{{ $englishLevel->english_level }}">{{
+                                                    $englishLevel->english_level }}</option>
+                                                @endforeach
+
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class="fas fa-filter"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <form action="{{ route('home') }}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="form-group">
+                                            <label for="age">Filter By Playing Time</label> <br>
+                                            <select name="playing_time" id="">
+
+                                                @foreach ($playingTimes->unique('playing_time') as $playingTime)
+                                                <option value="{{ $playingTime->playing_time }}">{{
+                                                    $playingTime->playing_time }} Hours</option>
+                                                @endforeach
+
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class="fas fa-filter"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            
                         </div>
-                            <table class="table table-striped table-sm">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>@sortablelink('ID')</th>
-                                        <th> @sortablelink('Full_Name')</th>
-                                        <th> @sortablelink('Age')</th>
-                                        <th>@sortablelink('gender')</th>
-                                        <th>Email</th>
-                                        <th>Nationality</th>
-                                        <th>@sortablelink('Created_At')</th>
-                                        <th>@sortablelink('status')</th>
-                                        <th>Reviewed</th>
-                                        <th>More</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($entries as $entry)
-                                    <tr class="{{ $entry->reviewed ? ' table-success' : ''}}">
-                                        <td>
-                                            {{ $entry->id }}
-                                        </td>
-                                        <td>
-                                            {{ $entry->full_name }}
-                                        </td>
-                                        <td>
-                                            {{ $entry->age }}
-                                        </td>
-                                        <td>
-                                            {{ $entry->gender }}
-                                        </td>
-                                        <td>
-                                            {{ $entry->email }}
-                                        </td>
-                                        <td>
-                                            {{ $entry->country }}
-                                        </td>
-                                        <td>
-                                            {{\Carbon\Carbon::parse($entry->created_at)->format('M d Y') }}
-                                        </td>
-                                        <td>
-                                            {{ $entry->status }}
-                                        </td>
-                                        <td>
-                                            @if ($entry->reviewed)
-                                            <i class="fas fa-check-circle bg-light p-2 text-success"></i>
-                                            @else
-                                            <i class="fas fa-window-close bg-primary p-2 text-light"></i>
-                                            @endif
+                        <table class="table table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>@sortablelink('ID')</th>
+                                    <th> @sortablelink('Full_Name')</th>
+                                    <th> @sortablelink('Age')</th>
+                                    <th>@sortablelink('gender')</th>
+                                    <th>Email</th>
+                                    <th>Nationality</th>
+                                    <th>@sortablelink('Created_At')</th>
+                                    <th>@sortablelink('status')</th>
+                                    <th>Reviewed</th>
+                                    <th>More</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($entries as $entry)
+                                <tr class="{{ $entry->reviewed ? ' table-success' : ''}}">
+                                    <td>
+                                        {{ $entry->id }}
+                                    </td>
+                                    <td>
+                                        {{ $entry->full_name }}
+                                    </td>
+                                    <td>
+                                        {{ $entry->age }}
+                                    </td>
+                                    <td>
+                                        {{ $entry->gender }}
+                                    </td>
+                                    <td>
+                                        {{ $entry->email }}
+                                    </td>
+                                    <td>
+                                        {{ $entry->country }}
+                                    </td>
+                                    <td>
+                                        {{\Carbon\Carbon::parse($entry->created_at)->format('M d Y') }}
+                                    </td>
+                                    <td>
+                                        {{ $entry->status }}
+                                    </td>
+                                    <td>
+                                        @if ($entry->reviewed)
+                                        <i class="fas fa-check-circle bg-light p-2 text-success"></i>
+                                        @else
+                                        <i class="fas fa-window-close bg-primary p-2 text-light"></i>
+                                        @endif
 
-                                        </td>
-                                        <td>
-                                            <button type="button"
-                                                class="{{ $entry->reviewed ? 'btn btn-light btn-sm' : 'btn btn-primary btn-sm' }}"
-                                                data-toggle="modal" data-target="#exampleModalLong-{{ $entry->id }}">
-                                                <i class="fas fa-caret-square-down"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <!-- Button trigger modal -->
-
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModalLong-{{ $entry->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">User Entry
-                                                        Details
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <b>Telephone:</b> +{{ $entry->phone }} <br>
-                                                    <b>Instant Messaging Platform:</b> {{
-                                                    $entry->instant_messaging_platform }} <br>
-                                                    <b>Instant Messaging Platform Username/Phone:</b> {{
-                                                    $entry->instant_messaging_platform_username }} <br>
-                                                    <b>Occupation:</b> {{ $entry->occupation }} <br>
-                                                    <b>Discord:</b> {{ $entry->discord }} <br>
-                                                    <b>English Level:</b> {{ $entry->english_level }} <br>
-                                                    <b>Playing Time:</b> {{ $entry->playing_time }} hours <br>
-                                                    <b>Social Account:</b> {{ $entry->social_account }} <br>
-                                                    <b> Experience:</b> {{ $entry->experience }} <br>
-                                                    <b>Refferal:</b> {{ $entry->refferal }} <b>Refferal Detail: {{
-                                                        $entry->refferal_detail }}</b> <br>
-                                                    <b>Played Game before:</b> {{ $entry->axie_played }} <br>
-                                                    <b>Understand Game Rules:</b> {{ $entry->understand_game_rules }}
-                                                    <br>
-                                                    <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
-                                                    <b>Comment:</b> {{ $entry->comment }} <br>
-                                                </div>
-                                                <h4 class="text-center">Change Scholar Status</h4> <br>
-                                                <div class="modal-footer">
+                                    </td>
+                                    <td>
+                                        <button type="button"
+                                            class="{{ $entry->reviewed ? 'btn btn-light btn-sm' : 'btn btn-primary btn-sm' }}"
+                                            data-toggle="modal" data-target="#exampleModalLong-{{ $entry->id }}">
+                                            <i class="fas fa-caret-square-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Button trigger modal -->
 
 
-                                                    @if ($entry->reviewed)
-                                                    <a class="btn btn-danger btn-sm"
-                                                        href="{{ route('reverse.review.user', $entry->id) }}">
-                                                        Set to Unreviewed
-                                                    </a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalLong-{{ $entry->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">User Entry
+                                                    Details
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <b>Telephone:</b> +{{ $entry->phone }} <br>
+                                                <b>Instant Messaging Platform:</b> {{
+                                                $entry->instant_messaging_platform }} <br>
+                                                <b>Instant Messaging Platform Username/Phone:</b> {{
+                                                $entry->instant_messaging_platform_username }} <br>
+                                                <b>Occupation:</b> {{ $entry->occupation }} <br>
+                                                <b>Discord:</b> {{ $entry->discord }} <br>
+                                                <b>English Level:</b> {{ $entry->english_level }} <br>
+                                                <b>Playing Time:</b> {{ $entry->playing_time }} hours <br>
+                                                <b>Social Account:</b> {{ $entry->social_account }} <br>
+                                                <b> Experience:</b> {{ $entry->experience }} <br>
+                                                <b>Refferal:</b> {{ $entry->refferal }} <b>Refferal Detail: {{
+                                                    $entry->refferal_detail }}</b> <br>
+                                                <b>Played Game before:</b> {{ $entry->axie_played }} <br>
+                                                <b>Understand Game Rules:</b> {{ $entry->understand_game_rules }}
+                                                <br>
+                                                <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
+                                                <b>Comment:</b> {{ $entry->comment }} <br>
+                                            </div>
+                                            <h4 class="text-center">Change Scholar Status</h4> <br>
+                                            <div class="modal-footer">
 
-                                                    @else
-                                                    <a class="btn btn-success btn-sm"
-                                                        href="{{ route('review.user', $entry->id) }}">Reviewed</a>
-                                                    @endif
+
+                                                @if ($entry->reviewed)
+                                                <a class="btn btn-danger btn-sm"
+                                                    href="{{ route('reverse.review.user', $entry->id) }}">
+                                                    Set to Unreviewed
+                                                </a>
+
+                                                @else
+                                                <a class="btn btn-success btn-sm"
+                                                    href="{{ route('review.user', $entry->id) }}">Reviewed</a>
+                                                @endif
 
 
-                                                    <a href="{{ route('status.interviewed', $entry->id) }}"
-                                                        class="btn btn-secondary btn-sm">Interviewed</a>
-                                                    <a href="{{ route('status.hired', $entry->id) }}"
-                                                        class="btn btn-primary btn-sm">Hired</a>
-                                                    <a href="{{ route('status.terminated', $entry->id) }}"
-                                                        class="btn btn-danger btn-sm">Terminated</a>
+                                                <a href="{{ route('status.interviewed', $entry->id) }}"
+                                                    class="btn btn-secondary btn-sm">Interviewed</a>
+                                                <a href="{{ route('status.hired', $entry->id) }}"
+                                                    class="btn btn-primary btn-sm">Hired</a>
+                                                <a href="{{ route('status.terminated', $entry->id) }}"
+                                                    class="btn btn-danger btn-sm">Terminated</a>
 
 
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                @endforeach
+                            </tbody>
+                        </table>
 
 
-
-                        </div>
-                        <div class=" p-3  d-flex justify-content-center">
-                            {{-- {{ $entries->links() }} --}}
-                            {{ $entries->appends(\Request::except('page'))->render() }}
-                        </div>
-                        @else
-                        <p class="text-center">There are no entries yet</p>
-                        @endif
 
                     </div>
+                    <div class=" p-3  d-flex justify-content-center">
+                        {{-- {{ $entries->links() }} --}}
+                        {{ $entries->appends(\Request::except('page'))->render() }}
+                    </div>
+                    @else
+                    <p class="text-center">There are no entries yet</p>
+                    @endif
+
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
