@@ -44,7 +44,7 @@
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="country">Filter By Country</label> <br>
-                                            <select name="country"  class="filter-input" >
+                                            <select name="country" class="filter-input">
 
                                                 @foreach ($countries->unique('country') as $country)
                                                 <option value="{{ $country->country }}">{{ $country->country }}</option>
@@ -82,7 +82,7 @@
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="age">Filter By English Level</label> <br>
-                                            <select name="english_level"  class="filter-input">
+                                            <select name="english_level" class="filter-input">
 
                                                 @foreach ($englishLevels->unique('english_level') as $englishLevel)
                                                 <option value="{{ $englishLevel->english_level }}">{{
@@ -102,7 +102,7 @@
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="age">Filter By Playing Time</label> <br>
-                                            <select name="playing_time"  class="filter-input">
+                                            <select name="playing_time" class="filter-input">
 
                                                 @foreach ($playingTimes->unique('playing_time') as $playingTime)
                                                 <option value="{{ $playingTime->playing_time }}">{{
@@ -126,10 +126,11 @@
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="country">Filter By Experience</label> <br>
-                                            <select name="experience"  class="filter-input" >
+                                            <select name="experience" class="filter-input">
 
                                                 @foreach ($experiences->unique('axie_played') as $experience)
-                                                <option value="{{ $experience->axie_played }}">{{ $experience->axie_played }}</option>
+                                                <option value="{{ $experience->axie_played }}">{{
+                                                    $experience->axie_played }}</option>
                                                 @endforeach
 
                                             </select>
@@ -164,11 +165,13 @@
                                         @method('GET')
                                         <div class="form-group">
                                             <label for="age">Filter By Date Registered</label> <br>
-                                            <select name="english_level"  class="filter-input">
+                                            <select name="created_at" class="filter-input">
 
-                                                @foreach ($englishLevels->unique('english_level') as $englishLevel)
-                                                <option value="{{ $englishLevel->english_level }}">{{
-                                                    $englishLevel->english_level }}</option>
+                                                @foreach ($dateRegistereds->unique('created_at') as $dateRegistered)
+                                                <option value="{{ $dateRegistered->created_at }}">
+                                                    {{
+                                                    \Carbon\Carbon::parse($dateRegistered->created_at)->format('M d Y')
+                                                    }}</option>
                                                 @endforeach
 
                                             </select>
@@ -178,7 +181,7 @@
                                     </form>
                                 </div>
 
-                              
+
                             </div>
                         </div>
                         <table class="table table-striped table-sm">

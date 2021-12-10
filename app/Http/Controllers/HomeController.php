@@ -34,6 +34,7 @@ class HomeController extends Controller
         $playingTImes =  ScholarshipEntry::all(['playing_time']);
         $experiences =   ScholarshipEntry::all(['axie_played']);
         $statuses = ScholarshipEntry::all(['status']);
+        $dateRegistereds = ScholarshipEntry::all(['created_at']);
 
 
 
@@ -68,6 +69,11 @@ class HomeController extends Controller
             $entries = ScholarshipEntry::where('status', $request->status)->paginate(10);
         }
 
+        //Filter by Date Registered
+        if ($request->has('created_at')) {
+            $entries = ScholarshipEntry::where('created_at', $request->created_at)->paginate(10);
+        }
+
         //Search
         if ($request->has('search')) {
             $entries = ScholarshipEntry::where(
@@ -89,7 +95,8 @@ class HomeController extends Controller
             'englishLevels' =>  $englishLevels,
             'playingTimes' => $playingTImes,
             'experiences' =>  $experiences,
-            'statuses' => $statuses
+            'statuses' => $statuses,
+            'dateRegistereds' => $dateRegistereds
         ]);
     }
 
