@@ -22,11 +22,63 @@
 
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3 p-2">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Filter
+                        <div class="row mb-5">
+                            <div class="col-md-3">
+                               <form action="{{ route('home') }}" method="POST">
+                                   @csrf
+                                   @method('GET')
+                                   <div class="form-group">
+                                    <label for="country">Filter By Country</label> <br>
+                                    <select name="country" id="">
+                                       
+                                        @foreach ($countries->unique('country') as $country)
+                                        <option value="{{ $country->country }}">{{ $country->country }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
+                                   </div>
+                               </form>
                             </div>
-                            <div class="col-md-6">
+
+                            <div class="col-md-3">
+                                <form action="{{ route('home') }}" method="POST">
+                                    @csrf
+                                    @method('GET')
+                                    <div class="form-group">
+                                     <label for="age">Filter By Age</label> <br>
+                                     <select name="age" id="">
+                                        
+                                         @foreach ($ages->unique('age') as $age)
+                                         <option value="{{ $age->age }}">{{ $age->age }}</option>
+                                         @endforeach
+                                         
+                                     </select>
+                                     <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
+                                    </div>
+                                </form>
+                             </div>
+
+                             <div class="col-md-3">
+                                <form action="{{ route('home') }}" method="POST">
+                                    @csrf
+                                    @method('GET')
+                                    <div class="form-group">
+                                     <label for="age">Filter By English Level</label> <br>
+                                     <select name="english_level" id="">
+                                        
+                                         @foreach ($englishLevels->unique('english_level') as $englishLevel)
+                                         <option value="{{ $englishLevel->english_level }}">{{ $englishLevel->english_level }}</option>
+                                         @endforeach
+                                         
+                                     </select>
+                                     <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
+                                    </div>
+                                </form>
+                             </div>
+
+
+                            <div class="col-md-3">
                                 <form action="{{route('home')}}" method="POST">
                                     @csrf
                                     @method('GET')

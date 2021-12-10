@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ScholarshipEntry;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -27,6 +28,29 @@ class HomeController extends Controller
     {
 
         $entries = ScholarshipEntry::Sortable()->paginate(10);
+        $countries = ScholarshipEntry::all(['country']);
+        $ages = ScholarshipEntry::all(['age']);
+        $englishLevels = ScholarshipEntry::all(['english_level']);
+
+
+
+        //Filter by country
+        if ($request->has('country')) {
+            $entries = ScholarshipEntry::where('country', $request->country)->distinct()->paginate(10);
+        }
+
+
+        //filter by Age
+        if ($request->has('age')) {
+            $entries = ScholarshipEntry::where('age', $request->age)->paginate(10);
+        }
+
+        //Filter by English Level
+        if ($request->has('english_level')) {
+            $entries = ScholarshipEntry::where('english_level', $request->english_level)->paginate(10);
+        }
+
+        //Search
         if ($request->has('search')) {
             $entries = ScholarshipEntry::where(
                 'full_name',
@@ -37,7 +61,15 @@ class HomeController extends Controller
                 ->orWhere('age', 'like', "%{$request->search}%")
                 ->paginate(10);
         }
-        return view('home', ['entries' => $entries]);
+
+
+
+        return view('home', [
+            'entries' => $entries,
+            'countries' => $countries,
+            'ages' => $ages,
+            'englishLevels' =>  $englishLevels
+        ]);
     }
 
     public function ReviewEntry($id)
