@@ -23,9 +23,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $entries = ScholarshipEntry::Sortable()->paginate(10);
+        if ($request->has('search')) {
+            $entries = ScholarshipEntry::where(
+                'full_name',
+                'like',
+                "%{$request->search}%"
+            )->orWhere('full_name', 'like', "%{$request->search}%")
+                ->orWhere('country', 'like', "%{$request->search}%")
+                ->orWhere('age', 'like', "%{$request->search}%")
+                ->paginate(10);
+        }
         return view('home', ['entries' => $entries]);
     }
 

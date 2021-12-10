@@ -22,17 +22,23 @@
 
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3 p-2">
-                        <div class="">
-                            <form action="{{route('entries.search')}}" method="POST">
-                                @csrf
-                                @method('GET')
-                                    <div class="input-group mb-2">
-                                        <input type="text" class="form-control" name="search" id="inlineFormInputGroup" placeholder="Search">
-                                    <div class="input-group-prepend">
-                                        <button type="submit" class="input-group-text btn btn-primary"><i class="fa fa-search"></i></button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Filter
+                            </div>
+                            <div class="col-md-6">
+                                <form action="{{route('home')}}" method="POST">
+                                    @csrf
+                                    @method('GET')
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" name="search" id="inlineFormInputGroup" placeholder="Search">
+                                        <div class="input-group-prepend">
+                                            <button type="submit" class="input-group-text btn btn-primary"><i class="fa fa-search"></i></button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                            
                         </div>
                             <table class="table table-striped table-sm">
                                 <thead class="thead-dark">
