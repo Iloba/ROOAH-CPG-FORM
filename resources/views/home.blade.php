@@ -22,24 +22,11 @@
 
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3 p-2">
-                        {{-- <div class="col-md-3">
-                            <form action="{{route('home')}}" method="POST">
-                                @csrf
-                                @method('GET')
-                                <div class="input-group mb-2">
-                                    <input type="text" class="form-control" name="search" id="inlineFormInputGroup"
-                                        placeholder="Search">
-                                    <div class="input-group-prepend">
-                                        <button type="submit" class="input-group-text btn btn-primary"><i
-                                                class="fa fa-search"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> --}}
+                       
                         <div class="container-fluid">
-                            <div class="row mb-3 justify-content-center">
-                                <div class="col-md-3 mb-3">
-                                    <form action="{{ route('home') }}" method="POST">
+                            <div class="row mb-3 ">
+                                <div class="col-md-4 mb-3">
+                                    <form action="{{ route('home') }}" class="mb-2" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group">
@@ -55,10 +42,9 @@
                                                     class="fas fa-filter"></i></button>
                                         </div>
                                     </form>
-                                </div>
+                                    
 
-                                <div class="col-md-3 mb-3">
-                                    <form action="{{ route('home') }}" method="POST">
+                                    <form action="{{ route('home') }}" class="mb-2" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group ">
@@ -74,10 +60,7 @@
                                                     class="fas fa-filter"></i></button>
                                         </div>
                                     </form>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <form action="{{ route('home') }}" method="POST">
+                                    <form action="{{ route('home') }}" class="mb-2" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group">
@@ -94,10 +77,7 @@
                                                     class="fas fa-filter"></i></button>
                                         </div>
                                     </form>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <form action="{{ route('home') }}" method="POST">
+                                    <form action="{{ route('home') }}" class="mb-2" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group">
@@ -115,13 +95,13 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- Second Filter Box --}}
-                        <div class="container-fluid">
-                            <div class="row mb-5 justify-content-center">
+
+                                <div class="col-md-4">
+                                    &nbsp;
+                                </div>
+
                                 <div class="col-md-4 mb-3">
-                                    <form action="{{ route('home') }}" method="POST">
+                                    <form action="{{ route('home') }}" class="mb-3" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group">
@@ -138,10 +118,8 @@
                                                     class="fas fa-filter"></i></button>
                                         </div>
                                     </form>
-                                </div>
 
-                                <div class="col-md-4 mb-3">
-                                    <form action="{{ route('home') }}" method="POST">
+                                    <form action="{{ route('home') }}" class="mb-3" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group ">
@@ -157,10 +135,8 @@
                                                     class="fas fa-filter"></i></button>
                                         </div>
                                     </form>
-                                </div>
 
-                                <div class="col-md-4 mb-3">
-                                    <form action="{{ route('home') }}" method="POST">
+                                    <form action="{{ route('home') }}" class="mb-3" method="POST">
                                         @csrf
                                         @method('GET')
                                         <div class="form-group">
@@ -179,11 +155,24 @@
                                                     class="fas fa-filter"></i></button>
                                         </div>
                                     </form>
+
+                                    <form action="{{route('home')}}" method="POST">
+                                        @csrf
+                                        @method('GET')
+                                        <div class="input-group mb-2">
+
+                                            <input type="text" class="" name="search" id="inlineFormInputGroup"
+                                                placeholder="Search">
+                                            <div class="input-group-prepend">
+                                                <button type="submit" class="input-group-text btn btn-primary"><i
+                                                        class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-
-
                             </div>
                         </div>
+                   
                         <table class="table table-striped table-sm">
                             <thead class="thead-dark">
                                 <tr>

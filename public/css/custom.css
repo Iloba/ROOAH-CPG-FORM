@@ -99,3 +99,10 @@ label{
        margin: auto;
     }
 }
+@media screen and (max-width: 719px) {
+    .filter-input{
+       width: 80%;
+       margin: auto;
+    }
+}
+
