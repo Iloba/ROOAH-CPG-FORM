@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ScholarshipEntry;
 use App\Rules\SpamProtection;
+use App\Models\ScholarshipEntry;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use phpDocumentor\Reflection\PseudoTypes\False_;
 
@@ -78,6 +79,46 @@ class ScholarshipEntryController extends Controller
         return redirect()->back();
 
 
+
+    }
+
+    public function UploadPreviousData(){
+
+       $scholars =  Http::get('http://127.0.0.1:4000/cpgBackup1.json');
+       $scholars = json_decode($scholars, true); //Converts to an Array
+
+    //    dd($scholars);
+    
+
+       foreach($scholars as $scholar){
+
+            $db = new ScholarshipEntry;
+            $db->full_name = $scholar['axie-scholars']['#1870']['full_name'];
+            $db->age = $scholar['axie-scholars']['#1870']['age'];
+            $db->phone = $scholar['axie-scholars']['#1870']['tel'];
+            $db->occupation = $scholar['axie-scholars']['#1870']['occupation'];
+            $db->gender = $scholar['axie-scholars']['#1870']['gender'];
+            $db->email = $scholar['axie-scholars']['#1870']['email'];
+            $db->country = $scholar['axie-scholars']['#1870']['country'];
+            $db->social_account = $scholar['axie-scholars']['#1870']['social'];
+            $db->discord = $scholar['axie-scholars']['#1870']['discord'];
+            $db->axie_played = $scholar['axie-scholars']['#1870']['axie_exp'];
+            $db->understand_game_rules = $scholar['axie-scholars']['#1870']['rules_knowledge'];
+            $db->english_level = $scholar['axie-scholars']['#1870']['english_level'];
+            $db->member = $scholar['axie-scholars']['#1870']['scholarship_elsewhere'];
+            $db->experience = $scholar['axie-scholars']['#1870']['gaming_exp'];
+            $db->playing_time = $scholar['axie-scholars']['#1870']['play_time'];
+            $db->refferal = $scholar['axie-scholars']['#1870']['referral'];
+            $db->refferal_detail = '';
+            $db->instant_messaging_platform = '';
+            $db->instant_messaging_platform_username = '';
+            $db->comment = $scholar['axie-scholars']['#1870']['additional_comments'];
+            $db->reviewed = False;
+            $db->status = 'Not Interviewed';
+           
+            // $db->save();
+
+       }
 
     }
 

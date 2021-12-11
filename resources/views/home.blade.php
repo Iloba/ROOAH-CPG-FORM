@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="header mb-3">
-            <img width="100" class="mx-auto d-block logo" src="{{ asset('img/cp-icon.png') }}" alt="">
+            <img width="100" class="mx-auto d-block logo" src="{{ asset('img/cp-icon.png') }}" alt="rooah">
             <h1 class="text-center rooah-heading">CRYPTOPIGGY GUILD</h1>
             <p class="text-center axie-heading text-bold">Axie Infinity Scholarship Entries <br> Entries with green
                 background have been reviwed, while those with white have not </p>
