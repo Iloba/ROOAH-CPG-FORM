@@ -10,12 +10,38 @@
                 background have been reviwed, while those with white have not </p>
 
         </div>
-        Number of Applicants: {{ $entriesCount }} <br>
-        Number of Reviewed  Applicants: {{ $reviewedEntriesCount }} <br>
-
-        Number of Hired Applicants: {{ $HiredEntriesCount }} <br> 
-        Number of Interviewed Applicants: {{  $interviewedEntriesCount }} <br>  
-        Number of Terminated Applicants: {{  $terminatedEntriesCount }}
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-md-2">
+                    <div class="card shadow-sm p-3">
+                       <p class="text-center">All <br>Applicants: <br> <b class="text-primary " style="font-size: 1.6rem;">{{ $entriesCount }}</b> </p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card shadow-sm p-3">
+                       <p class="text-center">Reviewed  Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{ $reviewedEntriesCount }}</b> </p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card shadow-sm p-3">
+                       <p class="text-center">Hired <br> Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{ $HiredEntriesCount }}</b> </p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card shadow-sm p-3">
+                       <p class="text-center">  Interviewed Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{  $interviewedEntriesCount }}</b> </p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card shadow-sm p-3">
+                       <p class="text-center">  Terminated Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{  $terminatedEntriesCount }}</b> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+         
+       
         <div class="col-md-12">
             <div class="card shadow-sm">
                 <div class="card-header"> Dashboard</div>
