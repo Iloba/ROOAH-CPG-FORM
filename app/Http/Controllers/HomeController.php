@@ -27,6 +27,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
+        $entriesCount = ScholarshipEntry::all()->count();
         $entries = ScholarshipEntry::Sortable()->paginate(10);
         $countries = ScholarshipEntry::all(['country']);
         $ages = ScholarshipEntry::all(['age']);
@@ -96,7 +97,8 @@ class HomeController extends Controller
             'playingTimes' => $playingTImes,
             'experiences' =>  $experiences,
             'statuses' => $statuses,
-            'dateRegistereds' => $dateRegistereds
+            'dateRegistereds' => $dateRegistereds,
+            'entriesCount' => $entriesCount
         ]);
     }
 

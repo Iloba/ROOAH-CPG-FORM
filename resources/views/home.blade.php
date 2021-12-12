@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-12">
             <div class="card shadow-sm">
-                <div class="card-header">{{ __('Dashboard') }} {{ __('You are logged in!') }}</div>
+                <div class="card-header"> Number of Applicants: <b>{{ $entriesCount }} </b></div>
                 <div class="card-body p-3">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -249,7 +249,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <b>Telephone:</b> +{{ $entry->phone }} <br>
+                                                <b>Telephone:</b> {{ $entry->phone }} <br>
                                                 <b>Instant Messaging Platform:</b> {{
                                                 $entry->instant_messaging_platform }} <br>
                                                 <b>Instant Messaging Platform Username/Phone:</b> {{

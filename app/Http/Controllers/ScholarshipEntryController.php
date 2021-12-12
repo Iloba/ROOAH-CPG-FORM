@@ -11,41 +11,43 @@ use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class ScholarshipEntryController extends Controller
 {
-    public function StoreEntry(Request $request){
-       
+    public function StoreEntry(Request $request)
+    {
+
         //Validate Request
-        $request->validate([
-            'full_name' => 'required|string',
-            'age' => 'required',
-            'phone' => 'required|min:11',
-            'occupation' => 'required|string',
-            'gender' => 'required|string|in:Male,Female,Other',
-            'email' => 'required|email',
-            'country' => 'required|string',
-            'english_level' => 'required|in:Basic,Intermediate,Advanced,Native',
-            'social_account' => 'required|string',
-            'discord' => 'required|string',
-            'axie_played' => 'required|string',
-            'understand_game_rules' => 'required|string',
-            'member' => 'required',
-            'experience' => 'required|string|max:255',
-            'playing_time' => 'required|string|between:1,2',
-            // 'comment' => 'String|max:255',
-            'refferal' => 'in:Discord,Reddit,Twitter,NaijaFM,Google,Friend,CPG Employee,Other',
-            'spam' => [
-                'required',
-                new SpamProtection(),
+        $request->validate(
+            [
+                'full_name' => 'required|string',
+                'age' => 'required',
+                'phone' => 'required|min:11',
+                'occupation' => 'required|string',
+                'gender' => 'required|string|in:Male,Female,Other',
+                'email' => 'required|email',
+                'country' => 'required|string',
+                'english_level' => 'required|in:Basic,Intermediate,Advanced,Native',
+                'social_account' => 'required|string',
+                'discord' => 'required|string',
+                'axie_played' => 'required|string',
+                'understand_game_rules' => 'required|string',
+                'member' => 'required',
+                'experience' => 'required|string|max:255',
+                'playing_time' => 'required|string|between:1,2',
+                // 'comment' => 'String|max:255',
+                'refferal' => 'in:Discord,Reddit,Twitter,NaijaFM,Google,Friend,CPG Employee,Other',
+                'spam' => [
+                    'required',
+                    new SpamProtection(),
+                ]
+            ],
+            [
+                'gender.in' => 'Please Select Gender',
+                'refferal.in' => 'Please Select Refferal',
+                'english_level.in' => 'Please Select English Level',
+                'axie_played.required' => 'Please Select an Option',
+                'member.required' => 'Please Select an Option',
+                'understand_game_rules.required' => 'Please Select an Option',
+
             ]
-        ],
-        [
-            'gender.in' => 'Please Select Gender',
-            'refferal.in' => 'Please Select Refferal',
-            'english_level.in' => 'Please Select English Level',
-            'axie_played.required' => 'Please Select an Option',
-            'member.required' => 'Please Select an Option',
-            'understand_game_rules.required' => 'Please Select an Option',
-            
-        ]
         );
 
         //Store Entry
@@ -77,50 +79,53 @@ class ScholarshipEntryController extends Controller
 
         Session::flash('success', 'Thank you for submitting your Entry. We will reach out to you');
         return redirect()->back();
-
-
-
     }
 
-    public function UploadPreviousData(){
+    // public function UploadPreviousData()
+    // {
 
-       $scholars =  Http::get('http://127.0.0.1:4000/cpgBackup1.json');
-       $scholars = json_decode($scholars, true); //Converts to an Array
+    //     $scholars =  Http::get('http://127.0.0.1:4000/cpgBackup1.json');
+    //     $scholars = json_decode($scholars, true); //Converts to an Array
 
-    //    dd($scholars);
-    
+    //     //    dd($scholars);
 
-       foreach($scholars as $scholar){
 
-            $db = new ScholarshipEntry;
-            $db->full_name = $scholar['axie-scholars']['#1870']['full_name'];
-            $db->age = $scholar['axie-scholars']['#1870']['age'];
-            $db->phone = $scholar['axie-scholars']['#1870']['tel'];
-            $db->occupation = $scholar['axie-scholars']['#1870']['occupation'];
-            $db->gender = $scholar['axie-scholars']['#1870']['gender'];
-            $db->email = $scholar['axie-scholars']['#1870']['email'];
-            $db->country = $scholar['axie-scholars']['#1870']['country'];
-            $db->social_account = $scholar['axie-scholars']['#1870']['social'];
-            $db->discord = $scholar['axie-scholars']['#1870']['discord'];
-            $db->axie_played = $scholar['axie-scholars']['#1870']['axie_exp'];
-            $db->understand_game_rules = $scholar['axie-scholars']['#1870']['rules_knowledge'];
-            $db->english_level = $scholar['axie-scholars']['#1870']['english_level'];
-            $db->member = $scholar['axie-scholars']['#1870']['scholarship_elsewhere'];
-            $db->experience = $scholar['axie-scholars']['#1870']['gaming_exp'];
-            $db->playing_time = $scholar['axie-scholars']['#1870']['play_time'];
-            $db->refferal = $scholar['axie-scholars']['#1870']['referral'];
-            $db->refferal_detail = '';
-            $db->instant_messaging_platform = '';
-            $db->instant_messaging_platform_username = '';
-            $db->comment = $scholar['axie-scholars']['#1870']['additional_comments'];
-            $db->reviewed = False;
-            $db->status = 'Not Interviewed';
-           
-            // $db->save();
+    //     foreach ($scholars as $scholar) {
 
-       }
+            
+    //         foreach ($scholar['axie-scholars'] as $sch) {
 
-    }
+              
+    //             $db = new ScholarshipEntry;
+    //             $db->full_name = $sch['full_name'];
+    //             $db->age = $sch['age'];
+    //             $db->phone = isset($sch['tel']) ? $sch['tel'] : '';
+    //             $db->occupation = $sch['occupation'];
+    //             $db->gender = $sch['gender'];
+    //             $db->email = $sch['email'];
+    //             $db->country = $sch['country'];
+    //             $db->social_account = $sch['social'];
+    //             $db->discord = $sch['discord'];
+    //             $db->axie_played = $sch['axie_exp'];
+    //             $db->understand_game_rules = $sch['rules_knowledge'];
+    //             $db->english_level = $sch['english_level'];
+    //             $db->member = $sch['scholarship_elsewhere'];
+    //             $db->experience = $sch['gaming_exp'];
+    //             $db->playing_time = $sch['play_time'];
+    //             $db->refferal = isset($sch['referral']) ? $sch['referral'] : '';
+    //             $db->refferal_detail = '';
+    //             $db->instant_messaging_platform = '';
+    //             $db->instant_messaging_platform_username = '';
+    //             $db->comment = $sch['additional_comments'];
+    //             $db->reviewed = False;
+    //             $db->status = 'Not Interviewed';
+    //             $db->save();
+    //         }
 
-   
+
+
+            
+
+    //     }
+    // }
 }
