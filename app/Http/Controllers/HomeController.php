@@ -28,6 +28,10 @@ class HomeController extends Controller
     {
 
         $entriesCount = ScholarshipEntry::all()->count();
+        $HiredEntriesCount = ScholarshipEntry::where('status', 'Hired')->count();
+        $interviewedEntriesCount = ScholarshipEntry::where('status', 'Interviewed')->count();
+        $terminatedEntriesCount = ScholarshipEntry::where('status', 'Contract Terminated')->count();
+        $reviewedEntriesCount = ScholarshipEntry::where('reviewed', true)->count();
         $entries = ScholarshipEntry::Sortable()->paginate(10);
         $countries = ScholarshipEntry::all(['country']);
         $ages = ScholarshipEntry::all(['age']);
@@ -98,7 +102,12 @@ class HomeController extends Controller
             'experiences' =>  $experiences,
             'statuses' => $statuses,
             'dateRegistereds' => $dateRegistereds,
-            'entriesCount' => $entriesCount
+            'entriesCount' => $entriesCount,
+            'HiredEntriesCount' => $HiredEntriesCount,
+            'interviewedEntriesCount' => $interviewedEntriesCount,
+            'terminatedEntriesCount' => $terminatedEntriesCount,
+            'reviewedEntriesCount'  => $reviewedEntriesCount
+
         ]);
     }
 

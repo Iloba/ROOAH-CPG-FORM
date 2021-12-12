@@ -27,7 +27,7 @@ Route::get('/reverse-review-entry/{id}', [HomeController::class, 'ReverseReviewE
 Route::get('/status-interviewed/{id}', [HomeController::class, 'StatusInterviewed'])->name('status.interviewed');
 Route::get('/status-hired/{id}', [HomeController::class, 'StatusHired'])->name('status.hired');
 Route::get('/status-terminated/{id}', [HomeController::class, 'StatusTerminated'])->name('status.terminated');
-Route::get('uploadDb', [ScholarshipEntryController::class, 'UploadPreviousData']);
+// Route::get('uploadDb', [ScholarshipEntryController::class, 'UploadPreviousData']);
 
 Auth::routes();
 

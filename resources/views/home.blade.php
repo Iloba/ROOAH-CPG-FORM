@@ -10,9 +10,15 @@
                 background have been reviwed, while those with white have not </p>
 
         </div>
+        Number of Applicants: {{ $entriesCount }} <br>
+        Number of Reviewed  Applicants: {{ $reviewedEntriesCount }} <br>
+
+        Number of Hired Applicants: {{ $HiredEntriesCount }} <br> 
+        Number of Interviewed Applicants: {{  $interviewedEntriesCount }} <br>  
+        Number of Terminated Applicants: {{  $terminatedEntriesCount }}
         <div class="col-md-12">
             <div class="card shadow-sm">
-                <div class="card-header"> Number of Applicants: <b>{{ $entriesCount }} </b></div>
+                <div class="card-header"> Dashboard</div>
                 <div class="card-body p-3">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -161,7 +167,7 @@
                                         @method('GET')
                                         <div class="input-group mb-2">
 
-                                            <input type="text" class="" name="search" id="inlineFormInputGroup"
+                                            <input type="text" name="search" id="inlineFormInputGroup"
                                                 placeholder="Search">
                                             <div class="input-group-prepend">
                                                 <button type="submit" class="input-group-text btn btn-primary"><i
