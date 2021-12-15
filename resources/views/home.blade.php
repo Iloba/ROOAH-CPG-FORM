@@ -340,10 +340,28 @@
                                                 <a href="{{ route('status.interviewed', $entry->id) }}"
                                                     class="btn btn-secondary btn-sm">Interviewed</a>
                                                @endif
+
+
+
                                                 <a href="{{ route('status.hired', $entry->id) }}"
                                                     class="btn btn-primary btn-sm">Hired</a>
+
+
+
+
+                                               @if ($entry->status === 'Contract Terminated')
+                                               
+                                                <a href="{{ route('status.not.terminated', $entry->id) }}"
+                                                    class="btn btn-danger btn-sm">Not Terminated</a>
+
+                                                @else
+
                                                 <a href="{{ route('status.terminated', $entry->id) }}"
                                                     class="btn btn-danger btn-sm">Terminated</a>
+    
+                                               @endif
+
+
                                                 <a href="{{ route('status.not.qualified', $entry->id) }}" class="btn btn-secondary btn-sm">Not Qualified
                                                 </a>
 
