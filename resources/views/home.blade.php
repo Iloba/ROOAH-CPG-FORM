@@ -330,6 +330,12 @@
                                                 class="btn btn-secondary btn-sm">Not Interviewed</a>
                                             
                                                @endif
+
+                                               @if ($entry->status === 'Not Qualified')
+                                                <a href="{{ route('status.interviewed', $entry->id) }}"
+                                                    class="btn btn-secondary btn-sm">Interviewed</a>
+                                               @endif
+
                                                @if ($entry->status === 'Not Interviewed')
                                                 <a href="{{ route('status.interviewed', $entry->id) }}"
                                                     class="btn btn-secondary btn-sm">Interviewed</a>
