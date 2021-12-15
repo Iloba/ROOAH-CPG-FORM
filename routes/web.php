@@ -29,6 +29,7 @@ Route::get('/status-hired/{id}', [HomeController::class, 'StatusHired'])->name('
 Route::get('/status-terminated/{id}', [HomeController::class, 'StatusTerminated'])->name('status.terminated');
 // Route::get('uploadDb', [ScholarshipEntryController::class, 'UploadPreviousData']);
 Route::get('/reverse-interviewed/{id}', [HomeController::class, 'ReverseInterviewedEntry'])->name('reverse.interviewed.user');
+Route::get('/not-qualified/{id}', [HomeController::class, 'setStatusToNotQualified'])->name('status.not.qualified');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

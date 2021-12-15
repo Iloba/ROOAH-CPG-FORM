@@ -205,4 +205,18 @@ class HomeController extends Controller
         Session::flash('success', 'Reversed Changes');
         return redirect()->back();
     }
+
+    public function setStatusToNotQualified($id){
+          //Get the entry
+          $entry = ScholarshipEntry::where('id', $id)->first();
+
+          //Set interviewed to yes and reviewed to true
+          $entry->status = 'Not Qualified';
+  
+          $entry->save();
+  
+  
+          Session::flash('success', 'Status set to not Qualified');
+          return redirect()->back();
+    }
 }

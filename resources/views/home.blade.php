@@ -325,7 +325,6 @@
                                                     href="{{ route('review.user', $entry->id) }}">Reviewed</a>
                                                 @endif
 
-
                                                @if ($entry->status === 'Interviewed')
                                                <a href="{{ route('reverse.interviewed.user', $entry->id) }}"
                                                 class="btn btn-secondary btn-sm">Not Interviewed</a>
@@ -339,7 +338,7 @@
                                                     class="btn btn-primary btn-sm">Hired</a>
                                                 <a href="{{ route('status.terminated', $entry->id) }}"
                                                     class="btn btn-danger btn-sm">Terminated</a>
-                                                <a href="" class="btn btn-secondary btn-sm">Not Qualified
+                                                <a href="{{ route('status.not.qualified', $entry->id) }}" class="btn btn-secondary btn-sm">Not Qualified
                                                 </a>
 
 
