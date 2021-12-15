@@ -14,34 +14,39 @@
             <div class="row justify-content-center">
                 <div class="col-md-2">
                     <div class="card shadow-sm p-3">
-                       <p class="text-center">All <br>Applicants: <br> <b class="text-primary " style="font-size: 1.6rem;">{{ $entriesCount }}</b> </p>
+                        <p class="text-center">All <br>Applicants: <br> <b class="text-primary "
+                                style="font-size: 1.6rem;">{{ $entriesCount }}</b> </p>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card shadow-sm p-3">
-                       <p class="text-center">Reviewed  Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{ $reviewedEntriesCount }}</b> </p>
+                        <p class="text-center">Reviewed Applicants: <br> <b class="text-primary"
+                                style="font-size: 1.6rem;">{{ $reviewedEntriesCount }}</b> </p>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card shadow-sm p-3">
-                       <p class="text-center">Hired <br> Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{ $HiredEntriesCount }}</b> </p>
+                        <p class="text-center">Hired <br> Applicants: <br> <b class="text-primary"
+                                style="font-size: 1.6rem;">{{ $HiredEntriesCount }}</b> </p>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card shadow-sm p-3">
-                       <p class="text-center">  Interviewed Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{  $interviewedEntriesCount }}</b> </p>
+                        <p class="text-center"> Interviewed Applicants: <br> <b class="text-primary"
+                                style="font-size: 1.6rem;">{{ $interviewedEntriesCount }}</b> </p>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card shadow-sm p-3">
-                       <p class="text-center">  Terminated Applicants: <br> <b class="text-primary" style="font-size: 1.6rem;">{{  $terminatedEntriesCount }}</b> </p>
+                        <p class="text-center"> Terminated Applicants: <br> <b class="text-primary"
+                                style="font-size: 1.6rem;">{{ $terminatedEntriesCount }}</b> </p>
                     </div>
                 </div>
             </div>
         </div>
-      
-         
-       
+
+
+
         <div class="col-md-12">
             <div class="card shadow-sm">
                 <div class="card-header"> Dashboard</div>
@@ -54,7 +59,7 @@
 
                     @if ($entries->count() > 0)
                     <div class="table-responsive mb-3 p-2">
-                       
+
                         <div class="container-fluid">
                             <div class="row mb-3 ">
                                 <div class="col-md-4 mb-3">
@@ -74,7 +79,7 @@
                                                     class="fas fa-filter"></i></button>
                                         </div>
                                     </form>
-                                    
+
 
                                     <form action="{{ route('home') }}" class="mb-2" method="POST">
                                         @csrf
@@ -204,7 +209,7 @@
                                 </div>
                             </div>
                         </div>
-                   
+
                         <table class="table table-striped table-sm">
                             <thead class="thead-dark">
                                 <tr>
@@ -300,9 +305,14 @@
                                                 <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
                                                 <b>Comment:</b> {{ $entry->comment }} <br>
                                             </div>
+                                           
                                             <h4 class="text-center">Change Scholar Status</h4> <br>
+                                            {{-- <div class="modal-footer mx-auto">
+                                                <a href="" class="btn btn-info btn-sm">Set to default status
+                                                </a>
+                                            </div> --}}
                                             <div class="modal-footer">
-
+                                                
 
                                                 @if ($entry->reviewed)
                                                 <a class="btn btn-danger btn-sm"
@@ -316,12 +326,21 @@
                                                 @endif
 
 
+                                               @if ($entry->status === 'Interviewed')
+                                               <a href="{{ route('reverse.interviewed.user', $entry->id) }}"
+                                                class="btn btn-secondary btn-sm">Not Interviewed</a>
+                                            
+                                               @endif
+                                               @if ($entry->status === 'Not Interviewed')
                                                 <a href="{{ route('status.interviewed', $entry->id) }}"
                                                     class="btn btn-secondary btn-sm">Interviewed</a>
+                                               @endif
                                                 <a href="{{ route('status.hired', $entry->id) }}"
                                                     class="btn btn-primary btn-sm">Hired</a>
                                                 <a href="{{ route('status.terminated', $entry->id) }}"
                                                     class="btn btn-danger btn-sm">Terminated</a>
+                                                <a href="" class="btn btn-secondary btn-sm">Not Qualified
+                                                </a>
 
 
                                             </div>

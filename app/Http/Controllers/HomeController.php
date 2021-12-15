@@ -189,4 +189,20 @@ class HomeController extends Controller
         Session::flash('success', 'Status set to Terminated');
         return redirect()->back();
     }
+
+    public function ReverseInterviewedEntry($id)
+    {
+
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
+
+        //Set interviewed to yes and reviewed to true
+        $entry->status = 'Not Interviewed';
+
+        $entry->save();
+
+
+        Session::flash('success', 'Reversed Changes');
+        return redirect()->back();
+    }
 }
