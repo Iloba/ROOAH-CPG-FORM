@@ -158,6 +158,17 @@
                     </div>
 
                     <div class="col-md-6">
+                        
+                        <div class="form-group mb-5">
+                            <label for="im_username">RONIN WALLET  <span
+                                    class="asterik">*</span></label>
+                            <input type="text" name="wallet" class="form-control" placeholder="Enter Ronin Wallet"
+                                value="{{ old('wallet') }}">
+                            @error('wallet')
+                            <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="form-group mb-5">
                             <label for="axie_played" class="mb-3">DO YOU HAVE EXPERIENCE PLAYING AXIE INFINITY
                                 BEFORE?</label>
