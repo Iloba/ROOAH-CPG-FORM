@@ -160,7 +160,7 @@
                     <div class="col-md-6">
                         
                         <div class="form-group mb-5">
-                            <label for="im_username">RONIN WALLET  <span
+                            <label for="wallet">RONIN WALLET  <span
                                     class="asterik">*</span></label>
                             <input type="text" name="wallet" class="form-control" placeholder="Enter Ronin Wallet"
                                 value="{{ old('wallet') }}">

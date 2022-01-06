@@ -304,6 +304,7 @@
                                                 <br>
                                                 <b>Member of another Scholarship:</b> {{ $entry->member }} <br>
                                                 <b>Comment:</b> {{ $entry->comment }} <br>
+                                                <b>Ronin Wallet:</b> {{ $entry->wallet }} <br>
                                             </div>
                                            
                                             <h4 class="text-center">Change Scholar Status</h4> <br>

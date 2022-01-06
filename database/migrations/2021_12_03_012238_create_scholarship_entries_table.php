@@ -25,6 +25,7 @@ class CreateScholarshipEntriesTable extends Migration
             $table->string('english_level');
             $table->text('social_account');
             $table->string('discord');
+            $table->string('wallet');
             $table->string('axie_played');
             $table->string('understand_game_rules');
             $table->string('member');

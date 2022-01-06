@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\ScholarshipEntry;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ScholarshipEntryController;
-use App\Models\ScholarshipEntry;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,12 @@ Route::get('/not-qualified/{id}', [HomeController::class, 'setStatusToNotQualifi
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//Route
+// Route::get('/add-new-column-to-database', function(){
+//     Schema::table('scholarship_entries', function($table) {
+//         $table->string('wallet_address');
+//         return '<h1>Column Added</h1>';
+//     });
+// });

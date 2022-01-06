@@ -31,6 +31,7 @@ class ScholarshipEntryController extends Controller
                 'understand_game_rules' => 'required|string',
                 'member' => 'required',
                 'experience' => 'required|string|max:255',
+                'wallet' => 'required',
                 'playing_time' => 'required|string|between:1,2',
                 // 'comment' => 'String|max:255',
                 'refferal' => 'in:Discord,Reddit,Twitter,NaijaFM,Google,Friend,CPG Employee,Other',
@@ -72,6 +73,7 @@ class ScholarshipEntryController extends Controller
         $entry->instant_messaging_platform = $request->im_platform;
         $entry->instant_messaging_platform_username = $request->im_username;
         $entry->comment = $request->comment;
+        $entry->wallet = $request->wallet;
         $entry->reviewed = False;
         $entry->status = 'Not Interviewed';
 
