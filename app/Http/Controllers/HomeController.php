@@ -206,32 +206,44 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function setStatusToNotQualified($id){
-          //Get the entry
-          $entry = ScholarshipEntry::where('id', $id)->first();
+    public function setStatusToNotQualified($id)
+    {
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
 
-          //Set interviewed to yes and reviewed to true
-          $entry->status = 'Not Qualified';
-  
-          $entry->save();
-  
-  
-          Session::flash('success', 'Status set to not Qualified');
-          return redirect()->back();
+        //Set interviewed to yes and reviewed to true
+        $entry->status = 'Not Qualified';
+
+        $entry->save();
+
+
+        Session::flash('success', 'Status set to not Qualified');
+        return redirect()->back();
     }
 
-    public function StatusNotTerminated($id){
+    public function StatusNotTerminated($id)
+    {
 
-           //Get the entry
-           $entry = ScholarshipEntry::where('id', $id)->first();
+        //Get the entry
+        $entry = ScholarshipEntry::where('id', $id)->first();
 
-           //Set interviewed to yes and reviewed to true
-           $entry->status = 'Not Interviewed';
-   
-           $entry->save();
-   
-   
-           Session::flash('success', 'Changes Reversed');
-           return redirect()->back();
+        //Set interviewed to yes and reviewed to true
+        $entry->status = 'Not Interviewed';
+
+        $entry->save();
+
+
+        Session::flash('success', 'Changes Reversed');
+        return redirect()->back();
+    }
+
+    public function deleteEntry($id)
+    {
+        $entry = ScholarshipEntry::find($id);
+
+        $entry->delete();
+
+        Session::flash('success', 'Entry Successfully Deleted');
+        return redirect()->back();
     }
 }

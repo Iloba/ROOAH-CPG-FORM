@@ -223,6 +223,7 @@
                                     <th>@sortablelink('status')</th>
                                     <th>Reviewed</th>
                                     <th>More</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -266,6 +267,20 @@
                                             data-toggle="modal" data-target="#exampleModalLong-{{ $entry->id }}">
                                             <i class="fas fa-caret-square-down"></i>
                                         </button>
+                                    </td>
+                                    <td>
+                                       <a onclick="
+                                        if(confirm('Are you sure you want to delete??')){
+                                            document.getElementById('form-delete-{{ $entry->id }}').submit();
+                                        }
+                                       " href="{{ route('delete-entry', $entry->id) }}" class="btn btn-danger btn-sm rounded"><i class="fas fa-trash text-light"></i></a>
+
+
+                                       <form action="{{ route('delete-entry', $entry->id) }}" method="POST" id="form-delete-{{ $entry->id }}">
+                                        @csrf   
+                                        @method('DELETE')
+
+                                       </form>
                                     </td>
                                 </tr>
                                 <!-- Button trigger modal -->
